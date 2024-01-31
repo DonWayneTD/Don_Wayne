@@ -1,0 +1,2608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/home/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>Coinsack</title>
+
+    <style>
+      /* Font Family */
+      @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
+      /* General Styling */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.13),
+            rgba(255, 255, 255, 0.13)
+          ),
+          #000;
+        font-family: "Manrope", sans-serif;
+      }
+
+      /* Tags */
+      a,
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.7px;
+        line-height: 32px;
+      }
+
+      a {
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      @media screen and (max-width: 1000px) {
+        a,
+        p {
+          font-size: 12px;
+          line-height: 30px;
+        }
+
+        a {
+          font-weight: 500;
+          line-height: normal;
+        }
+      }
+
+      /* Go to Top Btn */
+      #top-btn {
+        bottom: 30px;
+        display: none;
+        position: fixed;
+        right: 30px;
+        z-index: 1000;
+      }
+
+      #top-btn a {
+        background: url("../images/projects/coinsack/icon-goToTop.png")
+          center/cover no-repeat;
+        border-radius: 300px;
+        display: block;
+        height: 40px;
+        transition: all 0.3s;
+        width: 40px;
+      }
+      #top-btn a:hover {
+        background: url("../images/projects/coinsack/icon-goToTopHover.png")
+          center/cover no-repeat;
+      }
+
+      @media screen and (max-width: 400px) {
+        #top-btn {
+          bottom: 20px;
+          right: 20px;
+        }
+
+        #top-btn a:hover {
+          background: url("../images/home/icon-goToTop.png") center/cover
+            no-repeat;
+        }
+      }
+
+      /* Navigation Bar */
+      .navbar {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+        display: inline-block;
+        margin: 40px 50px 0px 50px;
+        padding: 15px 30px;
+        width: auto;
+      }
+
+      .navbar ul {
+        align-items: center;
+        display: flex;
+        list-style: none;
+      }
+
+      .navbar ul li {
+        margin-right: 15px;
+      }
+      .navbar ul li:last-of-type {
+        margin-right: 0px;
+      }
+
+      .navbar ul li a {
+        border: 1px solid rgba(255, 255, 255, 0);
+        border-radius: 20px;
+        color: #f6f6f6cc;
+        display: block;
+        padding: 15px 17px;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+      .navbar ul li a:first-of-type:hover,
+      .navbar ul li:last-of-type a {
+        background-color: #0466c8;
+        border: 1px solid #0466c8;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .navbar {
+          margin: 40px 30px 0px 30px;
+          padding: 10px;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .navbar {
+          margin: 40px 10px 0px 10px;
+        }
+      }
+
+      /* General Section */
+      .general-section {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+        color: #f6f6f6cc;
+        margin: 50px 50px 0px 50px;
+        padding: 50px 40px;
+      }
+
+      .general-section h1,
+      .general-section h2,
+      .general-section h3,
+      .general-section h4,
+      .general-section h5,
+      .general-section h6 {
+        color: #fff;
+        font-weight: 400;
+      }
+
+      .general-section h3 {
+        margin-bottom: 20px;
+      }
+
+      .section-btn {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        padding: 15px 17px;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+      .section-btn:hover {
+        background: #0466c8;
+        border: 1px solid #0466c8;
+      }
+
+      .section-item {
+        align-items: center;
+        display: flex;
+        margin-bottom: 20px;
+      }
+      .section-item:last-of-type {
+        margin-bottom: 0px;
+      }
+
+      .section-item p {
+        width: calc(100% - 16px);
+      }
+
+      .section-icon {
+        height: 16px;
+        margin-right: 10px;
+        width: 16px;
+      }
+
+      .icon-bullet {
+        background: url("../images/projects/coinsack/icon-bullet.png")
+          center/cover no-repeat;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .general-section {
+          margin: 30px 30px 0px 30px;
+          padding: 30px 20px;
+        }
+
+        .general-section br {
+          display: none;
+        }
+
+        .section-btn {
+          padding: 12px 14px;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .general-section {
+          margin: 30px 10px 0px 10px;
+        }
+      }
+
+      /* Section One */
+      .section-one {
+        border: 1px solid rgba(255, 255, 255, 0);
+        padding: 0px;
+      }
+
+      .sect1-container {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 70% 30%;
+      }
+
+      .sect1-card {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+      }
+      .sect1-card:first-of-type {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding: 0px 40px;
+      }
+      .sect1-card:last-of-type {
+        padding: 60px 20px;
+      }
+
+      .sect1-card:first-of-type h1 {
+        font-size: 36px;
+        font-weight: 700;
+      }
+
+      .sect1-card:first-of-type p {
+        margin: 20px 0px 30px 0px;
+      }
+
+      .sect1-box:first-of-type {
+        border-bottom: 1px solid #ffffff1a;
+        padding-bottom: 30px;
+      }
+      .sect1-box:last-of-type {
+        padding-top: 30px;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .sect1-container {
+          display: block;
+        }
+
+        .sect1-card:first-of-type,
+        .sect1-card:last-of-type {
+          margin-bottom: 20px;
+          padding: 30px 20px;
+        }
+
+        .sect1-card:last-of-type {
+          margin-bottom: 0px;
+        }
+
+        .sect1-card:first-of-type h1 {
+          font-size: 30px;
+        }
+      }
+
+      /* Section Two */
+      .imgSlides {
+        display: none;
+      }
+
+      .fade {
+        animation: fade 1.3s forwards;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      .section-two img {
+        height: 630px;
+        vertical-align: middle;
+        width: 100%;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .section-two img {
+          height: 200px;
+        }
+      }
+
+      /* Section Three */
+      .section-three {
+        border: 1px solid rgba(255, 255, 255, 0);
+        padding: 0px;
+      }
+
+      .sect3-container {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 30% 70%;
+      }
+
+      .sect3-card {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+        padding: 50px 40px;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .sect3-container {
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        .sect3-card {
+          padding: 30px 20px;
+        }
+      }
+
+      /* Section Four */
+      .section-four h2 {
+        margin-bottom: 15px;
+      }
+
+      .sect4-container {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+        margin: 50px 0px;
+        padding: 30px 25px;
+      }
+      .sect4-container:last-of-type {
+        margin-bottom: 0px;
+      }
+
+      .sect4-container1 {
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0);
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(5, 1fr);
+        margin-top: 30px;
+        padding: 30px 0px;
+      }
+
+      .sect4-container1 .sect4-card .sect4-subcard {
+        position: relative;
+      }
+
+      .sect4-container1 .sect4-imgbox {
+        height: 64px;
+        margin-bottom: 15px;
+        width: 64px;
+      }
+
+      .sect4-img1 {
+        background: url("../images/projects/coinsack/sect4-img1.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img2 {
+        background: url("../images/projects/coinsack/sect4-img2.png")
+          center/cover no-repeat;
+        margin-top: 10px;
+      }
+
+      .sect4-img3 {
+        background: url("../images/projects/coinsack/sect4-img3.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img4 {
+        background: url("../images/projects/coinsack/sect4-img4.png")
+          center/cover no-repeat;
+        margin-top: 10px;
+      }
+
+      .sect4-img5 {
+        background: url("../images/projects/coinsack/sect4-img5.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-container1 .sect4-arrow {
+        height: 85px;
+        position: absolute;
+        right: 0px;
+        width: 147px;
+      }
+
+      .sect4-container1 .sect4-arrowDown {
+        background: url("../images/projects/coinsack/sect4-arrowDown.png")
+          center/cover no-repeat;
+        top: 40px;
+      }
+
+      .sect4-container1 .sect4-arrowUp {
+        background: url("../images/projects/coinsack/sect4-arrowUp.png")
+          center/cover no-repeat;
+        bottom: 60px;
+      }
+      .sect4-container1 .sect4-arrowUp2 {
+        bottom: 40px;
+      }
+
+      .sect4-container1 .sect4-card2 .sect4-subcard {
+        display: grid;
+        grid-template-areas:
+          "txtbox"
+          "imgbox"
+          "headbox";
+      }
+
+      .sect4-container1 .sect4-card2 .sect4-subcard .sect4-txtbox {
+        grid-area: txtbox;
+      }
+
+      .sect4-container1 .sect4-card2 .sect4-subcard .sect4-imgbox {
+        grid-area: imgbox;
+        margin-bottom: 0px;
+      }
+
+      .sect4-container1 .sect4-card2 .sect4-subcard .sect4-headbox {
+        grid-area: headbox;
+        margin-bottom: 0px;
+        margin-top: 10px;
+      }
+
+      .sect4-container1 .sect4-card h3 {
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      .sect4-container1 .sect4-card2 h3 {
+        margin: 0px;
+      }
+
+      .sect4-container1 .sect4-card p {
+        font-size: 12px;
+      }
+
+      .sect4-arrowStraight {
+        display: none;
+      }
+
+      .sect4-container2 .section-icon {
+        height: 32px;
+        width: 32px;
+      }
+
+      .sect4-container2 .section-item {
+        margin-bottom: 15px;
+      }
+
+      .sect4-container2 .section-item .sect4-img2,
+      .sect4-container2 .section-item .sect4-img4 {
+        margin-top: 0px;
+      }
+
+      .sect4-container2 p.sect4-highlight {
+        color: #fff;
+        font-weight: 700;
+        margin: 30px 0px 20px 0px;
+      }
+
+      .sect4-imggrid1 {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .sect4-container2 .sect4-imggrid1 .sect4-imgbox {
+        height: 410px;
+        width: 100%;
+      }
+
+      .sect4-img6 {
+        background: url("../images/projects/coinsack/sect4-img6.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-imggrid2 {
+        background: #0466c8;
+        margin: 30px 0px;
+        padding: 50px 40px;
+      }
+
+      .sect4-imggrid2 .sect4-subcon {
+        display: grid;
+        grid-gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 20px;
+      }
+
+      .sect4-imggrid2 .sect4-subcon .sect4-card {
+        align-items: center;
+        border-radius: 20px;
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+        display: flex;
+        height: 312px;
+        padding: 20px;
+        justify-content: center;
+      }
+
+      .sect4-imggrid2 p {
+        font-size: 18px;
+      }
+
+      .sect4-imggrid2 .sect4-subcon .sect4-card h4 {
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+        line-height: 32px;
+      }
+
+      .sect4-imggrid3 {
+        background: #0466c8;
+        padding: 50px 40px;
+      }
+
+      .sect4-imggrid3 .sect4-header {
+        margin-bottom: 30px;
+      }
+
+      .sect4-imggrid3 .sect4-header1 {
+        background: url("../images/projects/coinsack/sect4-header1.png")
+          center/cover no-repeat;
+        height: 28px;
+        margin-bottom: 10px;
+        width: 288px;
+      }
+
+      .sect4-imggrid3 .sect4-subcon {
+        display: grid;
+        grid-gap: 30px;
+        grid-template-columns: repeat(1, 1fr);
+        margin-bottom: 40px;
+      }
+
+      .sect4-imggrid-mobile {
+        display: none;
+      }
+
+      .sect4-imggrid3 .sect4-card {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .sect4-imggrid3 .sect4-box {
+        background: #0466c8;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        padding: 20px 40px;
+      }
+
+      .sect4-imggrid3 .sect4-boxH {
+        background: #0466c8;
+        border: 1px solid rgba(255, 255, 255, 0);
+      }
+
+      .sect4-imggrid3 .sect4-box p {
+        line-height: normal;
+        text-align: center;
+      }
+
+      .sect4-personagrid,
+      .sect4-subcon2 {
+        background: #0466c8;
+        margin-top: 50px;
+        padding: 50px 40px;
+      }
+
+      .sect4-personagrid .sect4-header {
+        border: 1px solid rgba(255, 255, 255, 0);
+        height: 22px;
+        margin-bottom: 30px;
+        width: 195px;
+      }
+
+      .sect4-header2 {
+        background: url("../images/projects/coinsack/sect4-header2.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-header3 {
+        background: url("../images/projects/coinsack/sect4-header3.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-personagrid .sect4-subcon {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 400px calc(100% - 420px);
+      }
+
+      .sect4-personagrid .sect4-imgbox {
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        height: 400px;
+        width: 400px;
+      }
+
+      .sect4-img7 {
+        background: url("../images/projects/coinsack/sect4-img7.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img8 {
+        background: url("../images/projects/coinsack/sect4-img8.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-personagrid .sect4-txtbox {
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        margin-top: 30px;
+        padding: 40px 25px;
+      }
+
+      .sect4-personagrid .sect4-card2 .sect4-txtbox:first-of-type {
+        margin-top: 0px;
+      }
+
+      .sect4-personagrid .sect4-txtbox h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .sect4-personagrid .sect4-txtbox span {
+        color: #fff;
+      }
+
+      .sect4-personagrid ul,
+      .sect4-subcon2 ol {
+        list-style: disc inside;
+      }
+
+      .sect4-personagrid ul li,
+      .sect4-subcon2 ol li {
+        font-size: 14px;
+        line-height: 30px;
+      }
+
+      .sect4-header4 {
+        background: url("../images/projects/coinsack/sect4-header4.png")
+          center/cover no-repeat;
+        border: 1px solid rgba(255, 255, 255, 0);
+        height: 28px;
+        margin-bottom: 10px;
+        width: 393px;
+      }
+
+      .sect4-container2 .sect4-subcon2 p {
+        margin-bottom: 20px;
+      }
+
+      .sect4-header5 {
+        background: url("../images/projects/coinsack/sect4-header5.png")
+          center/cover no-repeat;
+        border: 1px solid rgba(255, 255, 255, 0);
+        height: 22px;
+        margin-bottom: 30px;
+        width: 320px;
+      }
+
+      .sect4-img9 {
+        background: url("../images/projects/coinsack/sect4-img9.png")
+          center/cover no-repeat;
+        height: 1220px;
+        margin: auto;
+        width: 956px;
+      }
+
+      .sect4-header6 {
+        background: url("../images/projects/coinsack/sect4-header6.png")
+          center/cover no-repeat;
+        border: 1px solid rgba(255, 255, 255, 0);
+        height: 38px;
+        margin-bottom: 30px;
+        width: 402px;
+      }
+
+      .sect4-img10 {
+        background: url("../images/projects/coinsack/sect4-img10.png")
+          center/cover no-repeat;
+        height: 1021px;
+        margin: auto;
+        width: 898px;
+      }
+
+      .sect4-ideateImg {
+        background: #0466c8;
+        margin-top: 30px;
+        padding: 50px 40px;
+      }
+
+      .sect4-header7 {
+        background: url("../images/projects/coinsack/sect4-header7.png")
+          center/cover no-repeat;
+        border: 1px solid rgba(255, 255, 255, 0);
+        height: 22px;
+        margin-bottom: 30px;
+        width: 231px;
+      }
+
+      .sect4-imggrid4 {
+        display: grid;
+        grid-gap: 30px;
+        grid-template-columns: 274px 332px 288px;
+        justify-content: space-between;
+      }
+
+      .sect4-imggrid4 .sect4-imgbox {
+        height: 277px;
+      }
+
+      .sect4-img11 {
+        background: url("../images/projects/coinsack/sect4-img11.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img12 {
+        background: url("../images/projects/coinsack/sect4-img12.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img13 {
+        background: url("../images/projects/coinsack/sect4-img13.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-phoneScreen {
+        background: #0466c8;
+        padding: 50px 40px;
+        margin-top: 30px;
+        position: relative;
+      }
+
+      .sect4-header8 {
+        background: url("../images/projects/coinsack/sect4-header8.png")
+          center/cover no-repeat;
+        border: 1px solid rgba(255, 255, 255, 0);
+        height: 22px;
+        margin-bottom: 30px;
+        width: 229px;
+      }
+
+      .sect4-phoneScreen .sect4-whiteSlab {
+        align-items: center;
+        background: #fff;
+        display: flex;
+        position: absolute;
+        height: 40px;
+        left: 0px;
+        width: 100%;
+        z-index: 0;
+      }
+
+      .sect4-phoneScreen .sect4-whiteSlab1 {
+        top: 335px;
+      }
+
+      .sect4-phoneScreen .sect4-whiteSlab h4 {
+        color: #0466c8;
+      }
+
+      .sect4-phoneScreen .sect4-whiteSlab1 h4,
+      .sect4-phoneScreen .sect4-whiteSlab3 h4 {
+        margin-left: 390px;
+      }
+
+      .sect4-phoneScreen .sect4-whiteSlab2 {
+        top: 970px;
+      }
+
+      .sect4-phoneScreen .sect4-whiteSlab2 h4,
+      .sect4-phoneScreen .sect4-whiteSlab4 h4 {
+        margin-left: 42px;
+      }
+
+      .sect4-phoneScreen .sect4-whiteSlab3 {
+        top: 1590px;
+      }
+
+      .sect4-phoneScreen .sect4-whiteSlab4 {
+        top: 2120px;
+      }
+
+      .sect4-phoneScreen p {
+        margin-bottom: 40px;
+      }
+
+      .sect4-phoneScreen .sect4-card {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+      }
+      .sect4-phoneScreen .sect4-card:last-of-type {
+        margin-bottom: 0px;
+      }
+
+      .sect4-phoneScreen .sect4-card2 {
+        display: grid;
+        grid-template-areas: "txtbox imgbox";
+      }
+
+      .sect4-phoneScreen .sect4-imgbox {
+        grid-area: imgbox;
+        height: 572px;
+        position: relative;
+        width: 310px;
+        z-index: 1;
+      }
+
+      .sect4-img14 {
+        background: url("../images/projects/coinsack/sect4-img14.gif")
+          center/cover no-repeat;
+      }
+
+      .sect4-img15 {
+        background: url("../images/projects/coinsack/sect4-img15.gif")
+          center/cover no-repeat;
+      }
+
+      .sect4-img16 {
+        background: url("../images/projects/coinsack/sect4-img16.gif")
+          center/cover no-repeat;
+      }
+
+      .sect4-img17 {
+        background: url("../images/projects/coinsack/sect4-img17.gif")
+          center/cover no-repeat;
+      }
+
+      .sect4-phoneScreen .sect4-txtbox {
+        grid-area: txtbox;
+        width: calc(100% - 350px);
+      }
+
+      .sect4-otherScreens {
+        background: #0466c8;
+        padding: 50px 40px;
+        margin-top: 30px;
+      }
+
+      .sect4-header9 {
+        background: url("../images/projects/coinsack/sect4-header9.png")
+          center/cover no-repeat;
+        border: 1px solid rgba(255, 255, 255, 0);
+        height: 22px;
+        margin-bottom: 30px;
+        width: 195px;
+      }
+
+      .sect4-imggrid5 {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(3, 306px);
+        justify-content: center;
+      }
+
+      .sect4-imggrid5 .sect4-imgbox {
+        height: 572px;
+        width: 100%;
+      }
+
+      .sect4-img18 {
+        background: url("../images/projects/coinsack/sect4-img18.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img19 {
+        background: url("../images/projects/coinsack/sect4-img19.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img20 {
+        background: url("../images/projects/coinsack/sect4-img20.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-container3 {
+        padding: 30px 20px;
+      }
+
+      .sect4-container3 .sect4-subcon {
+        background: #0466c8;
+        padding: 50px 40px;
+      }
+
+      .sect4-container3 .sect4-header {
+        margin-bottom: 40px;
+      }
+
+      .sect4-header10 {
+        background: url("../images/projects/coinsack/sect4-header10.png")
+          center/cover no-repeat;
+        border: 1px solid rgba(255, 255, 255, 0);
+        height: 29px;
+        width: 160px;
+      }
+
+      .sect4-header11 {
+        background: url("../images/projects/coinsack/sect4-header11.png")
+          center/cover no-repeat;
+        border: 1px solid rgba(255, 255, 255, 0);
+        height: 29px;
+        width: 276px;
+      }
+
+      .sect4-videobox {
+        height: 621px;
+        margin-top: 30px;
+        width: 100%;
+      }
+
+      @media screen and (max-width: 1300px) {
+        .sect4-container {
+          margin: 30px 0px;
+          overflow: hidden;
+          padding: 30px 20px;
+        }
+
+        .sect4-container1 {
+          grid-gap: 30px;
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        .sect4-container1 .sect4-arrow {
+          display: none;
+        }
+
+        .sect4-container1 .sect4-card1 {
+          display: grid;
+          grid-column-gap: 10px;
+          grid-template-columns: calc(100% - 18px) 8px;
+        }
+
+        .sect4-container1 .sect4-card2 {
+          display: grid;
+          grid-column-gap: 10px;
+          grid-template-columns: 8px calc(100% - 18px);
+        }
+
+        .sect4-container1 .sect4-card2 .sect4-subcard {
+          display: block;
+        }
+
+        .sect4-container1 .sect4-card2 .sect4-subcard .sect4-imgbox {
+          margin-left: 100%;
+          margin-top: 0px;
+          transform: translateX(-100%);
+        }
+
+        .sect4-container1 .sect4-card2 .sect4-subcard h3.sect4-headbox {
+          margin-top: 10px;
+          text-align: right;
+        }
+
+        .sect4-container1 .sect4-card2 .sect4-subcard p.sect4-txtbox {
+          margin-top: 10px;
+          text-align: right;
+        }
+
+        .sect4-arrowStraight {
+          background: url("../images/projects/coinsack/sect4-arrowStraight.png")
+            center/cover no-repeat;
+          display: block;
+          height: 344px;
+          width: 8px;
+        }
+
+        .sect4-container2 .sect4-imggrid1 .sect4-imgbox {
+          background: url("../images/projects/coinsack/sect4-img6b.png")
+            center/cover no-repeat;
+          height: 250px;
+        }
+
+        .sect4-imggrid2 {
+          margin: 30px 0px;
+          padding: 30px 20px;
+        }
+
+        .sect4-imggrid2 .sect4-subcon {
+          grid-gap: 20px;
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        .sect4-imggrid2 .sect4-subcon .sect4-card {
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+          height: 250px;
+        }
+
+        .sect4-imggrid2 p {
+          font-size: 14px;
+        }
+
+        .sect4-imggrid2 .sect4-subcon .sect4-card h4 {
+          font-size: 12px;
+          line-height: 30px;
+        }
+
+        .sect4-imggrid3 {
+          display: none;
+        }
+
+        .sect4-imggrid-mobile {
+          background: url("../images/projects/coinsack/sect4-imggrid-mobile.png")
+            center/cover no-repeat;
+          display: block;
+          height: 2200px;
+          margin: 30px 0px;
+          padding: 30px 20px;
+          width: 100%;
+        }
+
+        .sect4-personagrid,
+        .sect4-subcon2 {
+          margin-top: 30px;
+          padding: 30px 20px;
+        }
+
+        .sect4-personagrid {
+          border-radius: 10px;
+          padding: 30px 15px;
+        }
+
+        .sect4-personagrid .sect4-header {
+          height: 16px;
+          width: 140px;
+        }
+
+        .sect4-personagrid .sect4-subcon {
+          grid-gap: 30px;
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        .sect4-personagrid .sect4-imgbox {
+          height: 600px;
+          width: 100%;
+        }
+
+        .sect4-img7 {
+          background: url("../images/projects/coinsack/sect4-img7b.png")
+            center/cover no-repeat;
+        }
+
+        .sect4-img8 {
+          background: url("../images/projects/coinsack/sect4-img8b.png")
+            center/cover no-repeat;
+        }
+
+        .sect4-personagrid .sect4-txtbox {
+          padding: 30px 20px;
+        }
+
+        .sect4-personagrid .sect4-txtbox h4 {
+          font-size: 16px;
+        }
+
+        .sect4-personagrid ul li,
+        .sect4-subcon2 ol li {
+          font-size: 12px;
+          line-height: 23px;
+          margin-bottom: 5px;
+        }
+
+        .sect4-header4 {
+          height: 15px;
+          width: 200px;
+        }
+
+        .sect4-header5 {
+          height: 10px;
+          width: 150px;
+        }
+
+        .sect4-img9 {
+          background: url("../images/projects/coinsack/sect4-img9b.png")
+            center/cover no-repeat;
+          height: 2163px;
+          width: 150px;
+        }
+
+        .sect4-header6 {
+          height: 18px;
+          width: 180px;
+        }
+
+        .sect4-img10 {
+          background: url("../images/projects/coinsack/sect4-img10b.png")
+            center/cover no-repeat;
+          height: 2000px;
+          width: 150px;
+        }
+
+        .sect4-ideateImg {
+          padding: 30px 20px;
+        }
+
+        .sect4-header7 {
+          height: 15px;
+          margin-bottom: 20px;
+          width: 150px;
+        }
+
+        .sect4-imggrid4 {
+          grid-gap: 20px;
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        .sect4-imggrid4 .sect4-imgbox {
+          border-radius: 10px;
+          height: 450px;
+        }
+
+        .sect4-img11 {
+          background: url("../images/projects/coinsack/sect4-img11b.png")
+            center/cover no-repeat;
+        }
+
+        .sect4-img12 {
+          background: url("../images/projects/coinsack/sect4-img12b.png")
+            center/cover no-repeat;
+        }
+
+        .sect4-img13 {
+          background: url("../images/projects/coinsack/sect4-img13b.png")
+            center/cover no-repeat;
+        }
+
+        .sect4-phoneScreen {
+          padding: 30px 20px;
+        }
+
+        .sect4-header8 {
+          height: 18px;
+          width: 170px;
+        }
+
+        .sect4-phoneScreen .sect4-whiteSlab {
+          height: 40px;
+          z-index: 10;
+        }
+
+        .sect4-phoneScreen .sect4-whiteSlab h4 {
+          font-size: 14px;
+          margin: 0px;
+          padding: 0px 20px;
+          text-align: left;
+        }
+
+        .sect4-phoneScreen .sect4-whiteSlab1 {
+          top: 620px;
+        }
+
+        .sect4-phoneScreen .sect4-whiteSlab2 {
+          top: 1310px;
+        }
+
+        .sect4-phoneScreen .sect4-whiteSlab3 {
+          top: 1960px;
+        }
+
+        .sect4-phoneScreen .sect4-whiteSlab4 {
+          top: 2620px;
+        }
+
+        .sect4-phoneScreen p {
+          margin-bottom: 20px;
+        }
+
+        .sect4-phoneScreen .sect4-card {
+          display: block;
+          margin-bottom: 30px;
+        }
+
+        .sect4-phoneScreen .sect4-card2 {
+          display: grid;
+          grid-template-areas:
+            "imgbox"
+            "txtbox";
+        }
+
+        .sect4-phoneScreen .sect4-imgbox {
+          height: 470px;
+          margin-bottom: 70px;
+          width: 100%;
+        }
+
+        .sect4-phoneScreen .sect4-card2 .sect4-imgbox {
+          grid-area: imgbox;
+          margin-bottom: 70px;
+        }
+
+        .sect4-phoneScreen .sect4-txtbox {
+          grid-area: txtbox;
+          width: 100%;
+        }
+
+        .sect4-otherScreens {
+          padding: 30px 20px;
+        }
+
+        .sect4-header9 {
+          height: 18px;
+          width: 150px;
+        }
+
+        .sect4-imggrid5 {
+          grid-gap: 20px;
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        .sect4-imggrid5 .sect4-imgbox {
+          height: 572px;
+          margin: auto;
+          width: 306px;
+        }
+
+        .sect4-container3 .sect4-subcon {
+          padding: 30px 20px;
+        }
+
+        .sect4-container3 .sect4-header {
+          margin-bottom: 20px;
+        }
+
+        .sect4-header10 {
+          height: 22px;
+          width: 120px;
+        }
+
+        .sect4-header11 {
+          height: 13px;
+          width: 150px;
+        }
+
+        .sect4-videobox {
+          height: 400px;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .sect4-container2 .sect4-imggrid1 .sect4-imgbox {
+          height: 120px;
+        }
+
+        .sect4-imggrid-mobile {
+          height: 1000px;
+        }
+
+        .sect4-personagrid .sect4-imgbox {
+          height: 300px;
+        }
+
+        .sect4-imggrid4 .sect4-imgbox {
+          height: 250px;
+        }
+
+        .sect4-phoneScreen .sect4-whiteSlab1 {
+          top: 650px;
+        }
+
+        .sect4-phoneScreen .sect4-whiteSlab2 {
+          top: 1460px;
+        }
+
+        .sect4-phoneScreen .sect4-whiteSlab3 {
+          top: 2170px;
+        }
+
+        .sect4-phoneScreen .sect4-whiteSlab4 {
+          top: 2950px;
+        }
+
+        .sect4-imggrid5 .sect4-imgbox {
+          height: 450px;
+          width: 100%;
+        }
+
+        .sect4-videobox {
+          height: 300px;
+        }
+      }
+
+      /* Section Five */
+      .section-five {
+        border: 1px solid rgba(255, 255, 255, 0);
+        padding: 0px;
+      }
+
+      .sect5-container {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+          "S5-1 S5-1"
+          "S5-2 S5-3";
+      }
+
+      .sect5-card {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+        padding: 50px 40px;
+      }
+
+      .sect5-card1 {
+        grid-area: S5-1;
+      }
+
+      .sect5-card2 {
+        grid-area: S5-2;
+      }
+
+      .sect5-card3 {
+        grid-area: S5-3;
+      }
+
+      .sect5-toolslist {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
+
+      .sect5-icon {
+        height: 40px;
+        margin: auto;
+        margin-bottom: 10px;
+        width: 40px;
+      }
+
+      .icon-figma {
+        background: url("../images/projects/coinsack/icon-figma.png")
+          center/cover no-repeat;
+      }
+
+      .icon-youtube {
+        background: url("../images/projects/coinsack/icon-youtube.png")
+          center/cover no-repeat;
+      }
+
+      .icon-miro {
+        background: url("../images/projects/coinsack/icon-miro.png")
+          center/cover no-repeat;
+      }
+
+      .icon-googleforms {
+        background: url("../images/projects/coinsack/icon-googleforms.png")
+          center/cover no-repeat;
+      }
+
+      .sect5-toolslist p {
+        text-align: center;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .sect5-container {
+          grid-template-columns: repeat(1, 1fr);
+          grid-template-areas:
+            "S5-1"
+            "S5-2"
+            "S5-3";
+        }
+
+        .sect5-card {
+          padding: 30px 20px;
+        }
+
+        .sect5-card1 {
+          grid-area: S5-1;
+        }
+
+        .sect5-card2 {
+          grid-area: S5-2;
+        }
+
+        .sect5-card3 {
+          grid-area: S5-3;
+        }
+
+        .sect5-toolslist {
+          margin-top: 20px;
+        }
+
+        .sect5-icon {
+          height: 30px;
+          margin-bottom: 5px;
+          width: 30px;
+        }
+      }
+
+      /* Section Six */
+      .sect6-container {
+        text-align: center;
+      }
+
+      .sect6-txtbox {
+        margin-bottom: 30px;
+      }
+
+      .sect6-txtbox h1 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .sect6-btnbox {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      .sect6-btn {
+        align-items: center;
+        background: inherit;
+        display: flex;
+        justify-content: center;
+        margin-left: 10px;
+      }
+
+      .sect6-icon {
+        background: url("../images/home/icon-phone.png") center/cover no-repeat;
+        height: 16px;
+        margin-right: 5px;
+        width: 16px;
+      }
+
+      @media screen and (max-width: 800px) {
+        .sect6-txtbox h1 {
+          font-size: 30px;
+        }
+
+        .section-six .section-btn {
+          background: #0466c8;
+          border: 1px solid #0466c8;
+          text-align: center;
+          width: 50%;
+        }
+        .section-six .section-btn:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .section-six .sect6-btn {
+          background-color: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .section-six .sect6-btn:hover {
+          background-color: #0466c8;
+          border: 1px solid #0466c8;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .sect6-txtbox h1 {
+          font-size: 28px;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        .sect6-txtbox h1 {
+          font-size: 20px;
+        }
+
+        .sect6-container p,
+        .sect6-container a {
+          font-size: 12px;
+        }
+      }
+
+      /* Footer */
+      footer {
+        border: 1px solid #ffffff1a;
+        border-radius: 20px;
+        color: #f6f6f6cc;
+        margin: 50px;
+        padding: 70px 50px 20px 50px;
+      }
+
+      .fter-container {
+        display: grid;
+        grid-row-gap: 40px;
+        grid-template-areas:
+          "ft1 ft2 ft3"
+          "ft4 ft4 ft4";
+      }
+
+      .fter-card {
+        padding-left: 40%;
+      }
+
+      .fter-card h3 {
+        color: #f6f6f6;
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 20px;
+      }
+
+      .fter-card ul {
+        list-style: none;
+      }
+
+      .fter-card ul li {
+        margin-bottom: 5px;
+      }
+      .fter-card ul li:last-of-type {
+        margin-bottom: 0px;
+      }
+
+      .fter-card ul li a {
+        color: #f6f6f6cc;
+        display: inline-block;
+        padding: 10px 0px;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+      .fter-card ul li a:hover {
+        background: #0466c8;
+        border-radius: 10px;
+        padding: 10px 20px;
+        transform: scale(1.05);
+      }
+
+      .fter-logo {
+        background: url("../images/home/logo.png") no-repeat center/cover;
+        height: 40px;
+        margin-bottom: 10px;
+        width: 58px;
+      }
+
+      .fter-card1 {
+        grid-area: ft1;
+      }
+
+      .fter-card2 {
+        grid-area: ft2;
+      }
+
+      .fter-card3 {
+        grid-area: ft3;
+      }
+
+      .fter-card3 ul li {
+        margin-bottom: 5px;
+      }
+
+      .fter-card3 ul li a {
+        align-items: center;
+        display: inline-flex;
+        justify-content: left;
+      }
+
+      .fter-icon {
+        height: 16px;
+        margin-right: 10px;
+        width: 16px;
+      }
+
+      .fter-icon1 {
+        background: url("../images/home/icon-twitter.png") center/cover
+          no-repeat;
+      }
+
+      .fter-icon2 {
+        background: url("../images/home/icon-linkedIn.png") center/cover
+          no-repeat;
+      }
+
+      .fter-icon3 {
+        background: url("../images/home/icon-behance.png") center/cover
+          no-repeat;
+      }
+
+      .fter-icon4 {
+        background: url("../images/home/icon-whatsapp.png") center/cover
+          no-repeat;
+      }
+
+      .fter-card4 {
+        border-top: 1px solid #ffffff1a;
+        grid-area: ft4;
+        padding: 40px 0px;
+        text-align: center;
+      }
+
+      @media screen and (max-width: 1000px) {
+        footer {
+          margin: 30px;
+          padding: 50px 20px;
+        }
+
+        .fter-container {
+          grid-template-areas:
+            "ft1"
+            "ft2"
+            "ft3"
+            "ft4";
+        }
+
+        .fter-card {
+          padding-left: 0px;
+        }
+
+        .fter-card h3 {
+          font-size: 15px;
+          margin-bottom: 10px;
+        }
+
+        .fter-card1 {
+          grid-area: ft1;
+        }
+
+        .fter-card2 {
+          grid-area: ft2;
+        }
+
+        .fter-card3 {
+          grid-area: ft3;
+        }
+
+        .fter-card4 {
+          grid-area: ft4;
+          padding: 20px 0px 0px 0px;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        footer {
+          margin: 30px 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="top"></div>
+
+    <!-- Go-to-Top Btn -->
+    <div id="top-btn">
+      <a href="#top"></a>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li>
+          <a href="./coinsack.html">Coinsack</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Section One -->
+    <section class="section-one general-section">
+      <div class="sect1-container">
+        <div class="sect1-card">
+          <div>
+            <h1>Coinsack</h1>
+            <p>
+              Coinsack is a crypto app designed to enhance the mobile and web
+              experience for both novice and experienced cryptocurrency traders.
+              The primary goal is to create an accessible platform for users at
+              all skill levels.
+            </p>
+          </div>
+        </div>
+
+        <div class="sect1-card">
+          <div class="sect1-box">
+            <h3>Project Duration</h3>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>2 Weeks</p>
+            </div>
+          </div>
+
+          <div class="sect1-box">
+            <h3>Target Audience</h3>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>Students</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Two -->
+    <section class="section-two general-section">
+      <div class="imgSlides fade">
+        <img
+          src="../images/projects/coinsack/sect2-img1.png"
+          alt="Img not found"
+        />
+      </div>
+
+      <div class="imgSlides fade">
+        <img
+          src="../images/projects/coinsack/sect2-img2.png"
+          alt="Img not found"
+        />
+      </div>
+
+      <div class="imgSlides fade">
+        <img
+          src="../images/projects/coinsack/sect2-img3.png"
+          alt="Img not found"
+        />
+      </div>
+
+      <div class="imgSlides fade">
+        <img
+          src="../images/projects/coinsack/sect2-img4.png"
+          alt="Img not found"
+        />
+      </div>
+
+      <div class="imgSlides fade">
+        <img
+          src="../images/projects/coinsack/sect2-img5.png"
+          alt="Img not found"
+        />
+      </div>
+    </section>
+
+    <!-- Section Three -->
+    <section class="section-three general-section">
+      <div class="sect3-container">
+        <div class="sect3-card">
+          <h3>My Roles</h3>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>UI Designer</p>
+          </div>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>UX Designer</p>
+          </div>
+        </div>
+
+        <div class="sect3-card">
+          <h3>Objectives</h3>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>
+              Simplify the crypto trading process for both beginners and
+              experienced users.
+            </p>
+          </div>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>
+              Create a user-friendly platform that accommodates users at all
+              skill levels.
+            </p>
+          </div>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>
+              Improve personal problem-solving skills through the design
+              process.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Four -->
+    <section class="section-four general-section">
+      <h2>My Design Process</h2>
+      <p>
+        Before I start any design I always ensure to do my own research thereby
+        learning new things about the project and improving the way I would work
+        on the project. For Coinsack the process wasn’t any different.
+      </p>
+
+      <div class="sect4-container1 sect4-container">
+        <div class="sect4-card sect4-card1">
+          <div class="sect4-subcard">
+            <div class="sect4-imgbox sect4-img1"></div>
+            <h3>Research</h3>
+            <p>
+              I carried out a research on cryptocurrency then did a qualitative
+              survey with the aid of google forms.
+            </p>
+            <div class="sect4-arrow sect4-arrowDown"></div>
+          </div>
+
+          <div class="sect4-arrowStraight"></div>
+        </div>
+
+        <div class="sect4-card sect4-card2">
+          <div class="sect4-arrowStraight"></div>
+
+          <div class="sect4-subcard">
+            <div class="sect4-imgbox sect4-img2"></div>
+            <h3 class="sect4-headbox">Define</h3>
+            <p class="sect4-txtbox">
+              After carrying out my research I identified the major areas to
+              focus on in the project.
+            </p>
+            <div class="sect4-arrow sect4-arrowUp"></div>
+          </div>
+        </div>
+
+        <div class="sect4-card sect4-card1">
+          <div class="sect4-subcard">
+            <div class="sect4-imgbox sect4-img3"></div>
+            <h3>Ideate</h3>
+            <p>
+              At this point I started noting down my ideas for the project by
+              sketching out my wireframes.
+            </p>
+            <div class="sect4-arrow sect4-arrowDown"></div>
+          </div>
+
+          <div class="sect4-arrowStraight"></div>
+        </div>
+
+        <div class="sect4-card sect4-card2">
+          <div class="sect4-arrowStraight"></div>
+
+          <div class="sect4-subcard">
+            <div class="sect4-imgbox sect4-img4"></div>
+            <h3 class="sect4-headbox">Design</h3>
+            <p class="sect4-txtbox">
+              I started designing the high fidelity wireframes with my figma
+              tool
+            </p>
+            <div class="sect4-arrow sect4-arrowUp sect4-arrowUp2"></div>
+          </div>
+        </div>
+
+        <div class="sect4-card sect4-card1">
+          <div class="sect4-subcard">
+            <div class="sect4-imgbox sect4-img5"></div>
+            <h3>Prototype</h3>
+            <p>
+              At this stage I prototyped my work to get a view of how it would
+              look like in the real world.
+            </p>
+          </div>
+
+          <div class="sect4-arrowStraight"></div>
+        </div>
+      </div>
+
+      <div class="sect4-container2 sect4-container">
+        <div class="section-item">
+          <div class="section-icon sect4-img1"></div>
+          <h4>Research</h4>
+        </div>
+
+        <p>
+          Like I said earlier I like conducting my own research before carrying
+          out my projects. I also created a quantitative survey through the use
+          of google forms to ask traders and non traders about their experience
+          with cryptocurrency apps to which I got 13 responses. The chart can be
+          seen below;
+        </p>
+
+        <p class="sect4-highlight">
+          Insights from the quantitative research using google forms
+        </p>
+
+        <div class="sect4-imggrid1">
+          <div class="sect4-imgbox sect4-img6"></div>
+        </div>
+
+        <div class="sect4-imggrid2">
+          <p>Can you tell us your experience using these apps</p>
+
+          <div class="sect4-subcon">
+            <div class="sect4-card">
+              <h4>I had a pleasant experience</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>
+                It's been fine, most of them give me what I need; <br />
+                a place to monitor prices, buy and sell.
+              </h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Fast and Easy to Use</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>
+                A bit tricky at the beginning <br />
+                but got used to it thereafter
+              </h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Secure and reliable and easy to use</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>User friendly</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Excellent</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>
+                Trust wallet has been reliable so far. <br />
+                I don't use it frequently but it feels secure <br />
+                as it allows me to open multiple wallets. <br />
+                Binance hangs a lot, though it <br />
+                could be because my phone RAM is low.
+              </h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="sect4-imggrid2">
+          <p>What features did you like about these apps</p>
+
+          <div class="sect4-subcon">
+            <div class="sect4-card">
+              <h4>P2P</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Funding, withdrawal (transfer), P2P</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>All the features (p2p, spot, futures trading) etc</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Ease of use to purchase crypto</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>The user-friendly interface</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>All of it</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>
+                I like the fact that Trust wallet is very secure <br />
+                and keeps coins safe. I like the fact that <br />
+                binance logs me out automatically <br />
+                after a set period of nonuse and <br />
+                asks me to login again as a security measure
+              </h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>First Time</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="sect4-imggrid2">
+          <p>What features didn't you like about these apps</p>
+
+          <div class="sect4-subcon">
+            <div class="sect4-card">
+              <h4>
+                Some of them have pretty poor <br />
+                accessibility, coming to think of it.
+              </h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>The homescreen</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Security</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>
+                I don't like the fact that <br />
+                once I lose my passphrase for trust wallet, <br />
+                my wallet is irrecoverable. i also don't <br />
+                like the fact that Binance consumes a lot of data <br />
+                I think the UI/UX design is a bit excessive <br />
+                and consumes a lot of data.
+              </h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>None</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Not Yet</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Not Sure</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Can't Really Say</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="sect4-imggrid2">
+          <p>What features would you have liked to be added to these apps</p>
+
+          <div class="sect4-subcon">
+            <div class="sect4-card">
+              <h4>This is my first time</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>
+                Easier access to different features. <br />
+                Some educational content or guide.
+              </h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>
+                More streamlined/simplified UIs and <br />
+                an option to receive notifications on the prices <br />
+                of coins you own/have shown interest in.
+              </h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>
+                Wo I've tried. Friendly advice: make your forms <br />
+                more appealing to reply to. It's 2022, not br] many people like
+                writing essays👍🏽
+              </h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="sect4-imggrid3">
+          <div class="sect4-header">
+            <div class="sect4-header1"></div>
+            <p>
+              In the course of my research I had to test different crypto apps
+              to get more insight and inspiration for coinsack.
+            </p>
+          </div>
+
+          <div class="sect4-subcon">
+            <div class="sect4-card">
+              <div class="sect4-box sect4-boxH"><p>App Name</p></div>
+              <div class="sect4-box"><p>Bihance</p></div>
+              <div class="sect4-box"><p>Coinbase</p></div>
+              <div class="sect4-box"><p>Breet</p></div>
+            </div>
+
+            <div class="sect4-card">
+              <div class="sect4-box sect4-boxH"><p>Pros</p></div>
+              <div class="sect4-box"><p>P2P</p></div>
+              <div class="sect4-box"><p>Browser</p></div>
+              <div class="sect4-box"><p>Easy Registration</p></div>
+            </div>
+
+            <div class="sect4-card">
+              <div class="sect4-box sect4-boxH"><p>Cons</p></div>
+              <div class="sect4-box"><p>Stressful Registration</p></div>
+              <div class="sect4-box"><p>P2P</p></div>
+              <div class="sect4-box"><p>P2P</p></div>
+            </div>
+          </div>
+
+          <p>
+            These apps are all great for trading crypto and all have more pros
+            than cons
+          </p>
+        </div>
+
+        <div class="sect4-imggrid-mobile"></div>
+      </div>
+
+      <div class="sect4-container2 sect4-container">
+        <div class="section-item">
+          <div class="section-icon sect4-img2"></div>
+          <h4>Define</h4>
+        </div>
+
+        <p>
+          At this stage I created detailed user personas and outlined
+          distinctive features to set Coinsack apart in the competitive crypto
+          app landscape. This ensured a user-centric design approach, addressing
+          the diverse needs of both beginners and experienced crypto traders.
+        </p>
+
+        <div class="sect4-personagrid">
+          <div class="sect4-header sect4-header2"></div>
+
+          <div class="sect4-subcon">
+            <div class="sect4-card sect4-card1">
+              <div class="sect4-imgbox sect4-img7"></div>
+
+              <div class="sect4-txtbox">
+                <h4>Demographics</h4>
+                <p><span>Name:</span> Funke Ayodeji</p>
+                <p><span>Age:</span> 20</p>
+                <p><span>Location:</span> Osun State</p>
+                <p><span>Occupation:</span> Teacher</p>
+              </div>
+            </div>
+
+            <div class="sect4-card sect4-card2">
+              <div class="sect4-txtbox">
+                <h4>Bio</h4>
+                <p>
+                  Funke is a single teacher who works in a secondary school and
+                  just started trading crypto but needs an app that can help
+                  manage and improve her trading skills without affecting her
+                  teaching job.
+                </p>
+              </div>
+
+              <div class="sect4-txtbox">
+                <h4>Pain Points</h4>
+
+                <ul>
+                  <li>
+                    Unable to manage her crypto portfolio due to her teaching
+                    job
+                  </li>
+                  <li>Still finds some crypto concepts confusing.</li>
+                  <li>Doesn’t make her desired income from crypto.</li>
+                </ul>
+              </div>
+
+              <div class="sect4-txtbox">
+                <h4>Goals</h4>
+
+                <ul>
+                  <li>To increase her crypto trading skills.</li>
+                  <li>
+                    To trade crypto without it affecting her teaching job.
+                  </li>
+                  <li>To make more income from crypto.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sect4-personagrid">
+          <div class="sect4-header sect4-header3"></div>
+
+          <div class="sect4-subcon">
+            <div class="sect4-card sect4-card1">
+              <div class="sect4-imgbox sect4-img8"></div>
+
+              <div class="sect4-txtbox">
+                <h4>Demographics</h4>
+                <p><span>Name:</span> Shola Johnson</p>
+                <p><span>Age:</span> 28</p>
+                <p><span>Location:</span> Lagos State</p>
+                <p><span>Occupation:</span> Data Analyst</p>
+              </div>
+            </div>
+
+            <div class="sect4-card sect4-card2">
+              <div class="sect4-txtbox">
+                <h4>Bio</h4>
+                <p>
+                  Shola is a top data analyst at a multinational company and
+                  married with 2 kids. He is a crypto expert and loves to play
+                  around with crypto apps.
+                </p>
+              </div>
+
+              <div class="sect4-txtbox">
+                <h4>Pain Points</h4>
+
+                <ul>
+                  <li>
+                    Doesn’t like how some web trading options aren’t on mobile
+                  </li>
+                  <li>
+                    Doesn’t have enough time for his family due to his job.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="sect4-txtbox">
+                <h4>Goals</h4>
+
+                <ul>
+                  <li>To use more web features on mobile trading apps.</li>
+                  <li>To spend more time with his family.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sect4-subcon2">
+          <div class="sect4-header sect4-header4"></div>
+          <p>
+            Coinsack, as I like to say, has a sack of features, it was designed
+            with the users in mind from the onboarding screens to the logout
+            screen it has been tailored to be a seamless and exciting
+            experience. Some of these features are listed below:
+          </p>
+
+          <ol>
+            <li>Easy and fast registration.</li>
+            <li>Buying and selling of cryptocurrencies.</li>
+            <li>Educational content and guide for beginners.</li>
+            <li>Peer to peer trading.</li>
+            <li>Easy crafting of portfolios.</li>
+            <li>Notifications on the crypto economy.</li>
+          </ol>
+        </div>
+
+        <div class="sect4-subcon2">
+          <div class="sect4-header sect4-header5"></div>
+          <div class="sect4-img9"></div>
+        </div>
+
+        <div class="sect4-subcon2">
+          <div class="sect4-header sect4-header6"></div>
+          <div class="sect4-img10"></div>
+        </div>
+      </div>
+
+      <div class="sect4-container2 sect4-container">
+        <div class="section-item">
+          <div class="section-icon sect4-img3"></div>
+          <h4>Ideate</h4>
+        </div>
+
+        <div class="sect4-ideateImg">
+          <div class="sect4-header sect4-header7"></div>
+
+          <div class="sect4-imggrid4">
+            <div class="sect4-card">
+              <div class="sect4-imgbox sect4-img11"></div>
+            </div>
+
+            <div class="sect4-card">
+              <div class="sect4-imgbox sect4-img12"></div>
+            </div>
+
+            <div class="sect4-card">
+              <div class="sect4-imgbox sect4-img13"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sect4-container2 sect4-container">
+        <div class="section-item">
+          <div class="section-icon sect4-img4"></div>
+          <h4>Design</h4>
+        </div>
+
+        <div class="sect4-phoneScreen">
+          <div class="sect4-header sect4-header8"></div>
+          <p>Some exclusive screens with major features</p>
+
+          <div class="sect4-whiteSlab sect4-whiteSlab1">
+            <h4>The Homescreen</h4>
+          </div>
+
+          <div class="sect4-whiteSlab sect4-whiteSlab2">
+            <h4>Portfolio</h4>
+          </div>
+
+          <div class="sect4-whiteSlab sect4-whiteSlab3">
+            <h4>Trade</h4>
+          </div>
+
+          <div class="sect4-whiteSlab sect4-whiteSlab4">
+            <h4>Learn</h4>
+          </div>
+
+          <div class="sect4-card sect4-card1">
+            <div class="sect4-imgbox sect4-img14"></div>
+
+            <div class="sect4-txtbox">
+              <p>
+                The homescreen shows the users at a glance their current balance
+                and they can easily buy, sell, send, recieve and convert their
+                assets through the quick actions. It also showcases the live
+                prices of some assets available on coinsack. This was done to
+                enable a stress free user experience.
+              </p>
+            </div>
+          </div>
+
+          <div class="sect4-card sect4-card2">
+            <div class="sect4-txtbox">
+              <p>
+                The portfolio screen enables the users to manage their assets,
+                it also gives them an history of their past transactions and
+                saved assets.
+              </p>
+            </div>
+
+            <div class="sect4-imgbox sect4-img15"></div>
+          </div>
+
+          <div class="sect4-card sect4-card1">
+            <div class="sect4-imgbox sect4-img16"></div>
+
+            <div class="sect4-txtbox">
+              <p>
+                The trade screen makes all trading done on coinsack possible
+                from here users have several trading options like peer to peer,
+                futures trading and even NFTs. Allowing all these features to
+                co-exist in the same section was done to improve their
+                accessibility.
+              </p>
+            </div>
+          </div>
+
+          <div class="sect4-card sect4-card2">
+            <div class="sect4-txtbox">
+              <p>
+                One of the top priorities of Coinsack is to help beginners
+                understand the crypto world easier so the learn section was
+                created which has 4 sub sections namely the articles, videos,
+                demo and saved sections. The articles section contains a sack of
+                articles on anything crypto, blockchain, nfts and even web 3.0
+                and yes it also applies to the videos’ section as well. The
+                ‘’saved’’ section keeps all starred articles and videos.
+              </p>
+            </div>
+
+            <div class="sect4-imgbox sect4-img17"></div>
+          </div>
+        </div>
+
+        <div class="sect4-otherScreens">
+          <div class="sect4-header sect4-header9"></div>
+
+          <div class="sect4-imggrid5">
+            <div class="sect4-imgbox sect4-img18"></div>
+
+            <div class="sect4-imgbox sect4-img19"></div>
+
+            <div class="sect4-imgbox sect4-img20"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sect4-container3 sect4-container">
+        <div class="sect4-subcon">
+          <div class="sect4-header sect4-header10"></div>
+
+          <div class="sect4-videobox">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/abD5FyUOLtE?si=mKzL3kFUHQrqlrF_"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="sect4-container3 sect4-container">
+        <div class="sect4-subcon">
+          <div class="sect4-header sect4-header11"></div>
+
+          <div class="sect4-videobox">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/8-OhUUHpAvI?si=DCP--D35wBLFZYe0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Five -->
+    <section class="section-five general-section">
+      <div class="sect5-container">
+        <div class="sect5-card sect5-card1">
+          <h3>Challenges I Faced</h3>
+          <p>
+            Being my first case study, presenting it posed a challenge but after
+            carrying out a research, checking Behance and Linkedin for
+            inspirations, I finally came across someone who designed a ready
+            made template in the Figma community for beginners, shout to Esther
+            Omosehin (Kems), which I later used for my presentation on behance.
+          </p>
+        </div>
+
+        <div class="sect5-card sect5-card2">
+          <h3>Lessons Learnt</h3>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>I learnt how to communicate with developers.</p>
+          </div>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>I was greatly exposed to the crypto space.</p>
+          </div>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>I discovered how valuable the figma community was.</p>
+          </div>
+        </div>
+
+        <div class="sect5-card sect5-card3">
+          <h3>Tools I Used</h3>
+
+          <div class="sect5-toolslist">
+            <div>
+              <div class="sect5-icon icon-figma"></div>
+              <p>Figma</p>
+            </div>
+
+            <div>
+              <div class="sect5-icon icon-youtube"></div>
+              <p>Youtube</p>
+            </div>
+
+            <div>
+              <div class="sect5-icon icon-miro"></div>
+              <p>Miro</p>
+            </div>
+
+            <div>
+              <div class="sect5-icon icon-googleforms"></div>
+              <p>Google Forms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Six -->
+    <section class="section-six general-section">
+      <div class="sect6-container">
+        <div class="sect6-txtbox">
+          <h1>Thank You for Reading! 📖✨</h1>
+          <p>Bravo! You deserve a virtual high-five! 🙌</p>
+        </div>
+
+        <div class="sect6-btnbox">
+          <a href="../index.html" class="section-btn">Go Back Home</a>
+
+          <a
+            href="https://calendly.com/donwaynethedesigner/30min"
+            class="section-btn sect6-btn"
+            target="_blank"
+            ><div class="sect6-icon"></div>
+            Let's Talk</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="fter-container">
+        <div class="fter-card fter-card1">
+          <div class="fter-logo"></div>
+          <p>Don Wayne</p>
+        </div>
+
+        <div class="fter-card fter-card2">
+          <h3>Quick Links</h3>
+
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./portfolio.html">Portfolio</a></li>
+            <li><a href="./about.html">About Me</a></li>
+            <li><a href="./contact.html">Contact Me</a></li>
+          </ul>
+        </div>
+
+        <div class="fter-card fter-card3">
+          <h3>Social Links</h3>
+
+          <ul>
+            <li>
+              <a href="https://twitter.com/DonWayne1048" target="_blank"
+                ><div class="fter-icon fter-icon1"></div>
+                Twitter</a
+              >
+            </li>
+            <li>
+              <a href="https://linkedin.com/in/donwaynetd" target="_blank"
+                ><div class="fter-icon fter-icon2"></div>
+                Linkedin</a
+              >
+            </li>
+            <li>
+              <a href="https://www.behance.net/donwayne" target="_blank"
+                ><div class="fter-icon fter-icon3"></div>
+                Behance</a
+              >
+            </li>
+            <li>
+              <a href="https://wa.me/2349167843179" target="_blank"
+                ><div class="fter-icon fter-icon4"></div>
+                Whatsapp</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="fter-card fter-card4">
+          <p>Made by <span>Don Wayne</span></p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Go-to-Top Button
+      const topBtn = document.querySelector("#top-btn");
+
+      let bodyScrollTopPosition = document.body.scrollTop;
+
+      window.onscroll = function () {
+        if (
+          bodyScrollTopPosition > 150 ||
+          document.documentElement.scrollTop > 150
+        ) {
+          topBtn.style.display = "block";
+        } else {
+          topBtn.style.display = "none";
+        }
+      };
+
+      // Image Silder
+      let slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("imgSlides");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2000);
+      }
+    </script>
+  </body>
+</html>

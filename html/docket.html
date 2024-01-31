@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/home/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>Docket</title>
+
+    <style>
+      /* Font Family */
+      @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
+      /* General Styling */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.13),
+            rgba(255, 255, 255, 0.13)
+          ),
+          #000;
+        font-family: "Manrope", sans-serif;
+      }
+
+      /* Tags */
+      a,
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.7px;
+        line-height: 32px;
+      }
+
+      a {
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      @media screen and (max-width: 1000px) {
+        a,
+        p {
+          font-size: 12px;
+          line-height: 30px;
+        }
+
+        a {
+          font-weight: 500;
+          line-height: normal;
+        }
+      }
+
+      /* Go to Top Btn */
+      #top-btn {
+        bottom: 30px;
+        display: none;
+        position: fixed;
+        right: 30px;
+        z-index: 1000;
+      }
+
+      #top-btn a {
+        background: url("../images/projects/docket/icon-goToTop.png")
+          center/cover no-repeat;
+        border-radius: 300px;
+        display: block;
+        height: 40px;
+        transition: all 0.3s;
+        width: 40px;
+      }
+      #top-btn a:hover {
+        background: url("../images/projects/docket/icon-goToTopHover.png")
+          center/cover no-repeat;
+      }
+
+      @media screen and (max-width: 400px) {
+        #top-btn {
+          bottom: 20px;
+          right: 20px;
+        }
+
+        #top-btn a:hover {
+          background: url("../images/home/icon-goToTop.png") center/cover
+            no-repeat;
+        }
+      }
+
+      /* Navigation Bar */
+      .navbar {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+        display: inline-block;
+        margin: 40px 50px 0px 50px;
+        padding: 15px 30px;
+        width: auto;
+      }
+
+      .navbar ul {
+        align-items: center;
+        display: flex;
+        list-style: none;
+      }
+
+      .navbar ul li {
+        margin-right: 15px;
+      }
+      .navbar ul li:last-of-type {
+        margin-right: 0px;
+      }
+
+      .navbar ul li a {
+        border: 1px solid rgba(255, 255, 255, 0);
+        border-radius: 20px;
+        color: #f6f6f6cc;
+        display: block;
+        padding: 15px 17px;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+      .navbar ul li a:first-of-type:hover,
+      .navbar ul li:last-of-type a {
+        background-color: #cd4134cc;
+        border: 1px solid #cd4134cc;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .navbar {
+          margin: 40px 30px 0px 30px;
+          padding: 10px;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .navbar {
+          margin: 40px 10px 0px 10px;
+        }
+      }
+
+      /* General Section */
+      .general-section {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+        color: #f6f6f6cc;
+        margin: 50px 50px 0px 50px;
+        padding: 50px 40px;
+      }
+
+      .general-section h1,
+      .general-section h2,
+      .general-section h3,
+      .general-section h4,
+      .general-section h5,
+      .general-section h6 {
+        color: #fff;
+        font-weight: 400;
+      }
+
+      .general-section h3 {
+        margin-bottom: 20px;
+      }
+
+      .section-btn {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        padding: 15px 17px;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+      .section-btn:hover {
+        background: #cd4134cc;
+        border: 1px solid #cd4134cc;
+      }
+
+      .section-item {
+        align-items: center;
+        display: flex;
+        margin-bottom: 20px;
+      }
+      .section-item:last-of-type {
+        margin-bottom: 0px;
+      }
+
+      .section-item p {
+        width: calc(100% - 16px);
+      }
+
+      .section-icon {
+        height: 16px;
+        margin-right: 10px;
+        width: 16px;
+      }
+
+      .icon-bullet {
+        background: url("../images/projects/docket/icon-bullet.png")
+          center/cover no-repeat;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .general-section {
+          margin: 30px 30px 0px 30px;
+          padding: 30px 20px;
+        }
+
+        .general-section br {
+          display: none;
+        }
+
+        .section-btn {
+          padding: 12px 14px;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .general-section {
+          margin: 30px 10px 0px 10px;
+        }
+      }
+
+      /* Section One */
+      .section-one {
+        border: 1px solid rgba(255, 255, 255, 0);
+        padding: 0px;
+      }
+
+      .sect1-container {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 70% calc(30% - 20px);
+      }
+
+      .sect1-card {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+      }
+      .sect1-card:first-of-type {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding: 0px 40px;
+      }
+      .sect1-card:last-of-type {
+        padding: 60px 20px;
+      }
+
+      .sect1-card:first-of-type h1 {
+        font-size: 36px;
+        font-weight: 700;
+      }
+
+      .sect1-card:first-of-type p {
+        margin: 20px 0px 30px 0px;
+      }
+
+      .sect1-box:first-of-type {
+        border-bottom: 1px solid #ffffff1a;
+        padding-bottom: 30px;
+      }
+      .sect1-box:last-of-type {
+        padding-top: 30px;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .sect1-container {
+          display: block;
+        }
+
+        .sect1-card:first-of-type,
+        .sect1-card:last-of-type {
+          margin-bottom: 30px;
+          padding: 30px 20px;
+        }
+
+        .sect1-card:last-of-type {
+          margin-bottom: 0px;
+        }
+
+        .sect1-card:first-of-type h1 {
+          font-size: 30px;
+        }
+      }
+
+      /* Section Two */
+      .imgSlides {
+        display: none;
+      }
+
+      .fade {
+        animation: fade 1.3s forwards;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      .section-two img {
+        height: 630px;
+        vertical-align: middle;
+        width: 100%;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .section-two img {
+          height: 500px;
+        }
+      }
+      @media screen and (max-width: 800px) {
+        .section-two img {
+          height: 400px;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .section-two img {
+          height: 300px;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .section-two img {
+          height: 200px;
+        }
+      }
+
+      /* Section Three */
+      .section-three {
+        border: 1px solid rgba(255, 255, 255, 0);
+        padding: 0px;
+      }
+
+      .sect3-container {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 30% 70%;
+      }
+
+      .sect3-card {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+        padding: 50px 40px;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .sect3-container {
+          display: block;
+        }
+
+        .sect3-card {
+          margin-bottom: 30px;
+          padding: 30px 20px;
+        }
+        .sect3-card:last-of-type {
+          margin-bottom: 0px;
+        }
+      }
+
+      /* Section Four */
+      .section-four h2 {
+        margin-bottom: 15px;
+      }
+
+      .sect4-container {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+        margin: 50px 0px;
+        padding: 30px 25px;
+      }
+      .sect4-container:last-of-type {
+        margin-bottom: 0px;
+      }
+
+      .sect4-container1 {
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0);
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
+
+      .sect4-container1 .sect4-imgbox {
+        height: 64px;
+        margin-bottom: 15px;
+        width: 64px;
+      }
+
+      .sect4-img1 {
+        background: url("../images/projects/docket/sect4-img1.png") center/cover
+          no-repeat;
+      }
+
+      .sect4-img2 {
+        background: url("../images/projects/docket/sect4-img2.png") center/cover
+          no-repeat;
+      }
+
+      .sect4-img3 {
+        background: url("../images/projects/docket/sect4-img3.png") center/cover
+          no-repeat;
+      }
+
+      .sect4-img4 {
+        background: url("../images/projects/docket/sect4-img4.png") center/cover
+          no-repeat;
+      }
+
+      .sect4-img5 {
+        background: url("../images/projects/docket/sect4-img5.png") center/cover
+          no-repeat;
+      }
+
+      .sect4-container1 .sect4-card .section-item p {
+        line-height: normal;
+      }
+
+      .sect4-container1 .icon-arrow {
+        background: url("../images/projects/docket/icon-arrowSide.png")
+          center/cover no-repeat;
+        height: 14px;
+        width: 50px;
+      }
+
+      .sect4-container2 .section-icon {
+        height: 32px;
+        width: 32px;
+      }
+
+      .sect4-container2 .section-item {
+        margin-bottom: 15px;
+      }
+
+      .sect4-container2 p.sect4-highlight {
+        color: #fff;
+        font-weight: 700;
+        margin: 30px 0px 20px 0px;
+      }
+
+      .sect4-imggrid1 {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .sect4-container2 .sect4-imggrid1 .sect4-imgbox {
+        height: 410px;
+        width: 100%;
+      }
+
+      .sect4-img6 {
+        background: url("../images/projects/docket/sect4-img6.png") center/cover
+          no-repeat;
+      }
+
+      .sect4-img7 {
+        background: url("../images/projects/docket/sect4-img7.png") center/cover
+          no-repeat;
+      }
+
+      .sect4-img8 {
+        background: url("../images/projects/docket/sect4-img8.png") center/cover
+          no-repeat;
+      }
+
+      .sect4-imggrid2 {
+        background: #cd4134cc;
+        margin: 30px 0px;
+        padding: 40px 20px;
+      }
+
+      .sect4-imggrid2 .sect4-subcon {
+        display: grid;
+        grid-gap: 40px;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 20px;
+      }
+
+      .sect4-imggrid2 .sect4-subcon .sect4-card {
+        align-items: center;
+        border-radius: 20px;
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+        display: flex;
+        height: 312px;
+        padding: 20px;
+        justify-content: center;
+      }
+
+      .sect4-imggrid2 p {
+        font-size: 18px;
+      }
+
+      .sect4-imggrid2 .sect4-subcon .sect4-card h4 {
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+        line-height: 32px;
+      }
+
+      .sect4-imggrid-mobile-bkg {
+        display: none;
+      }
+
+      .sect4-imggrid3 {
+        background: #cd4134cc;
+        padding: 40px 20px 40px 20px;
+      }
+
+      .sect4-imggrid3 .sect4-header {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 288px 718px;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .sect4-imggrid3 .sect4-header1 {
+        background: url("../images/projects/docket/sect4-header1.png")
+          center/cover no-repeat;
+        height: 28px;
+        width: 100%;
+      }
+
+      .sect4-imggrid3 h4 {
+        border: 1px solid #fff;
+        border-radius: 10px;
+        padding: 10px 0px;
+        text-align: center;
+      }
+
+      .sect4-imggrid3 .sect4-body {
+        display: grid;
+        grid-template-columns: 288px 718px;
+        justify-content: space-between;
+      }
+
+      .sect4-imggrid3 .sect4-card1 {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .sect4-imggrid3 .sect4-card1 .sect4-box {
+        background: #fff;
+        border-radius: 10px;
+        color: #cd4134cc;
+        padding: 12px 0px;
+        text-align: center;
+      }
+
+      .sect4-imggrid3 .sect4-card1 .sect4-box p {
+        font-weight: 600;
+      }
+
+      .sect4-imggrid3 .sect4-card2 {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      .sect4-imggrid3 .sect4-card2 .sect4-box {
+        background: #cd413480;
+        border: 1px solid #cd4134;
+        border-radius: 10px;
+        color: #fff;
+        padding: 12px 0px;
+        text-align: center;
+      }
+
+      .sect4-imggrid3 .sect4-card2 .section-item {
+        background: inherit;
+        border: 1px solid #fff;
+        margin: 0px;
+        justify-content: center;
+      }
+
+      .sect4-imggrid3 .sect4-card2 .section-icon {
+        height: 16px;
+        width: 16px;
+      }
+
+      .icon-trello {
+        background: url("../images/projects/docket/icon-trello.png")
+          center/cover no-repeat;
+      }
+
+      .icon-airtable {
+        background: url("../images/projects/docket/icon-airtable.png")
+          center/cover no-repeat;
+      }
+
+      .icon-slack {
+        background: url("../images/projects/docket/icon-slack.png") center/cover
+          no-repeat;
+      }
+
+      .icon-clickUp {
+        background: url("../images/projects/docket/icon-clickUp.png")
+          center/cover no-repeat;
+      }
+
+      .icon-docket {
+        background: url("../images/projects/docket/icon-docket.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-imggrid3 .sect4-card2 .sect4-boxN {
+        background: inherit;
+      }
+
+      .sect4-imggrid3 .sect4-card2 .sect4-box p {
+        font-weight: 600;
+      }
+
+      .sect4-container2 h5 {
+        color: #fff;
+        font-size: 18px;
+        margin-bottom: 10px;
+        margin-top: 40px;
+      }
+
+      .sect4-personagrid {
+        background: #cd4134cc;
+        margin-top: 50px;
+        padding-top: 40px;
+      }
+
+      .sect4-personagrid .sect4-header {
+        border: 1px solid rgba(255, 255, 255, 0);
+        height: 22px;
+        margin-left: 20px;
+        width: 195px;
+      }
+
+      .sect4-personagrid .sect4-header2 {
+        background: url("../images/projects/docket/sect4-header2.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-personagrid .sect4-header3 {
+        background: url("../images/projects/docket/sect4-header3.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-personagrid .sect4-subcon {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
+
+      .sect4-personagrid .sect4-imgbox {
+        height: 1004px;
+        width: 619px;
+      }
+
+      .sect4-img9 {
+        background: url("../images/projects/docket/sect4-img9.png") center/cover
+          no-repeat;
+      }
+
+      .sect4-img10 {
+        background: url("../images/projects/docket/sect4-img10.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-personagrid .sect4-infobox {
+        margin-left: 20px;
+        width: calc(100% - 619px);
+      }
+
+      .sect4-personagrid .sect4-txtbox {
+        border-bottom: 1px solid #cd4134;
+        padding: 50px 0px;
+        padding-right: 20px;
+      }
+      .sect4-personagrid .sect4-txtbox:last-of-type {
+        border-bottom: 1px solid rgba(255, 255, 255, 0);
+      }
+
+      .sect4-personagrid ol {
+        list-style-position: inside;
+      }
+
+      .sect4-personagrid ol li {
+        font-size: 13px;
+        line-height: 30px;
+        padding-left: 5px;
+      }
+
+      .sect4-personagrid .sect4-txtbox span {
+        color: #fff;
+      }
+
+      .sect4-img11 {
+        background: url("../images/projects/docket/sect4-img11.png")
+          center/cover no-repeat;
+        height: 889px;
+        width: 1123px;
+      }
+
+      .sect4-lofi1 {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .sect4-lofi-Imgs {
+        height: 300px;
+        width: 400px;
+      }
+
+      .sect4-img12 {
+        background: url("../images/projects/docket/sect4-img12.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img13 {
+        background: url("../images/projects/docket/sect4-img13.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-lofi2 {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin: 40px 0px;
+      }
+
+      .sect4-img14 {
+        background: url("../images/projects/docket/sect4-img14.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img15 {
+        background: url("../images/projects/docket/sect4-img15.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img16 {
+        background: url("../images/projects/docket/sect4-img16.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-phoneScreen {
+        background: #cd4134cc;
+        margin-top: 50px;
+        padding: 40px 50px;
+      }
+
+      .sect4-header4 {
+        background: url("../images/projects/docket/sect4-header4.png")
+          center/cover no-repeat;
+        height: 29px;
+        margin-bottom: 30px;
+        width: 142px;
+      }
+
+      .sect4-phoneScreen .sect4-imggrid {
+        display: grid;
+        grid-row-gap: 50px;
+        grid-template-columns: repeat(3, 305px);
+        grid-template-rows: repeat(2, 573px);
+        justify-content: space-between;
+      }
+
+      .sect4-img17 {
+        background: url("../images/projects/docket/sect4-img17.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img18 {
+        background: url("../images/projects/docket/sect4-img18.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img19 {
+        background: url("../images/projects/docket/sect4-img19.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img20 {
+        background: url("../images/projects/docket/sect4-img20.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img21 {
+        background: url("../images/projects/docket/sect4-img21.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-img22 {
+        background: url("../images/projects/docket/sect4-img22.png")
+          center/cover no-repeat;
+      }
+
+      .sect4-container2:last-of-type p:first-of-type {
+        margin-bottom: 30px;
+      }
+
+      .sect4-videobox {
+        height: 621px;
+        margin-bottom: 50px;
+        margin-top: 30px;
+        width: 100%;
+      }
+      .sect4-videobox:last-of-type {
+        margin-bottom: 0px;
+      }
+
+      @media screen and (max-width: 1300px) {
+        .sect4-container {
+          margin: 30px 0px;
+          padding: 30px 20px;
+        }
+
+        .sect4-container1 {
+          display: grid;
+          grid-gap: 40px;
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        .sect4-container1 .sect4-imgbox {
+          margin: auto;
+          margin-bottom: 15px;
+        }
+
+        .sect4-container1 .sect4-txtbox {
+          display: inline-block;
+          margin: auto;
+          margin-left: 50%;
+          transform: translateX(-50%);
+          width: 160px;
+        }
+
+        .sect4-container1 .icon-arrow {
+          background: url("../images/projects/docket/icon-arrowDown.png")
+            center/cover no-repeat;
+          height: 50px;
+          margin: auto;
+          width: 24px;
+        }
+
+        .sect4-container2 .sect4-imggrid1 .sect4-imgbox {
+          height: 280px;
+        }
+
+        .sect4-img6 {
+          background: url("../images/projects/docket/sect4-img6b.png")
+            center/cover no-repeat;
+        }
+
+        .sect4-img7 {
+          background: url("../images/projects/docket/sect4-img7b.png")
+            center/cover no-repeat;
+        }
+
+        .sect4-img8 {
+          background: url("../images/projects/docket/sect4-img8b.png")
+            center/cover no-repeat;
+        }
+
+        .sect4-imggrid2 {
+          padding: 30px 20px;
+        }
+
+        .sect4-imggrid2 .sect4-subcon {
+          grid-gap: 10px;
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        .sect4-imggrid2 p {
+          font-size: 12px;
+        }
+
+        .sect4-imggrid3 {
+          display: none;
+        }
+
+        .sect4-imggrid-mobile-bkg {
+          background: #cd4134cc;
+          display: block;
+          padding: 30px 20px;
+        }
+
+        .sect4-imggrid-mobile {
+          background: url("../images/projects/docket/sect4-imggrid-mobile.png")
+            center/cover no-repeat;
+          height: 8714px;
+          margin: auto;
+          width: 580px;
+        }
+
+        .sect4-container2 h5 {
+          font-size: 16px;
+        }
+
+        .sect4-personagrid {
+          padding: 30px 20px 0px 20px;
+        }
+
+        .sect4-personagrid .sect4-header {
+          height: 20px;
+          margin-left: 0px;
+          width: 190px;
+        }
+
+        .sect4-personagrid .sect4-subcon {
+          display: block;
+          padding: 0px;
+        }
+
+        .sect4-personagrid .sect4-imgbox {
+          height: 800px;
+          width: 100%;
+        }
+
+        .sect4-personagrid .sect4-infobox {
+          margin-left: 0px;
+          width: 100%;
+        }
+
+        .sect4-personagrid .sect4-txtbox {
+          padding: 20px 0px;
+        }
+
+        .sect4-img11 {
+          background: url("../images/projects/docket/sect4-img11b.png")
+            center/cover no-repeat;
+          height: 1820px;
+          margin: auto;
+          width: 310px;
+        }
+
+        .sect4-lofi1 {
+          display: block;
+        }
+
+        .sect4-lofi1 .sect4-lofi-Imgs {
+          margin-bottom: 20px;
+        }
+
+        .sect4-lofi-Imgs {
+          height: 480px;
+          width: 100%;
+        }
+
+        .sect4-lofi2 {
+          display: block;
+          margin: 20px 0px;
+        }
+
+        .sect4-phoneScreen {
+          padding: 30px 20px;
+        }
+
+        .sect4-phoneScreen .sect4-imggrid {
+          grid-template-columns: repeat(1, 305px);
+          grid-template-rows: repeat(6, 573px);
+          justify-content: center;
+        }
+
+        .sect4-videobox {
+          height: 400px;
+          margin-bottom: 30px;
+          margin-top: 20px;
+          width: 100%;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .sect4-container2 .sect4-imggrid1 .sect4-imgbox {
+          height: 110px;
+        }
+
+        .sect4-imggrid2 .sect4-subcon .sect4-card {
+          height: 200px;
+        }
+
+        .sect4-imggrid-mobile {
+          height: 3560px;
+          width: 100%;
+        }
+
+        .sect4-personagrid .sect4-imgbox {
+          height: 400px;
+        }
+
+        .sect4-img11 {
+          height: 1800px;
+          width: 100%;
+        }
+
+        .sect4-lofi-Imgs {
+          height: 200px;
+        }
+
+        .sect4-personagrid {
+          padding: 30px 10px 0px 10px;
+        }
+
+        .sect4-phoneScreen .sect4-imggrid {
+          grid-row-gap: 10px;
+          grid-template-columns: repeat(1, 100%);
+          grid-template-rows: repeat(6, 450px);
+        }
+
+        .sect4-videobox {
+          height: 200px;
+        }
+      }
+
+      /* Section Five */
+      .section-five {
+        border: 1px solid rgba(255, 255, 255, 0);
+        padding: 0px;
+      }
+
+      .sect5-container {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sect5-card {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+        padding: 50px 40px;
+      }
+
+      .sect5-toolslist {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
+
+      .sect5-icon {
+        height: 40px;
+        margin: auto;
+        margin-bottom: 10px;
+        width: 40px;
+      }
+
+      .icon-figma {
+        background: url("../images/projects/docket/icon-figma.png") center/cover
+          no-repeat;
+      }
+
+      .icon-youtube {
+        background: url("../images/projects/docket/icon-youtube.png")
+          center/cover no-repeat;
+      }
+
+      .icon-miro {
+        background: url("../images/projects/docket/icon-miro.png") center/cover
+          no-repeat;
+      }
+
+      .icon-googleforms {
+        background: url("../images/projects/docket/icon-googleforms.png")
+          center/cover no-repeat;
+      }
+
+      .sect5-toolslist p {
+        text-align: center;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .sect5-container {
+          display: block;
+        }
+
+        .sect5-card {
+          margin-bottom: 30px;
+          padding: 30px 20px;
+        }
+        .sect5-card:last-of-type {
+          margin-bottom: 0px;
+        }
+
+        .sect5-icon {
+          height: 30px;
+          width: 30px;
+        }
+      }
+
+      /* Section Six */
+      .sect6-container {
+        text-align: center;
+      }
+
+      .sect6-txtbox {
+        margin-bottom: 30px;
+      }
+
+      .sect6-txtbox h1 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .sect6-btnbox {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      .sect6-btn {
+        align-items: center;
+        background: inherit;
+        display: flex;
+        justify-content: center;
+        margin-left: 10px;
+      }
+
+      .sect6-icon {
+        background: url("../images/home/icon-phone.png") center/cover no-repeat;
+        height: 16px;
+        margin-right: 5px;
+        width: 16px;
+      }
+
+      @media screen and (max-width: 800px) {
+        .sect6-txtbox h1 {
+          font-size: 30px;
+        }
+
+        .section-six .section-btn {
+          background: #cd4134;
+          border: 1px solid #cd4134;
+          text-align: center;
+          width: 50%;
+        }
+        .section-six .section-btn:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .section-six .sect6-btn {
+          background-color: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .section-six .sect6-btn:hover {
+          background-color: #cd4134;
+          border: 1px solid #cd4134;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .sect6-txtbox h1 {
+          font-size: 28px;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        .sect6-txtbox h1 {
+          font-size: 20px;
+        }
+
+        .sect6-container p,
+        .sect6-container a {
+          font-size: 12px;
+        }
+      }
+
+      /* Footer */
+      footer {
+        border: 1px solid #ffffff1a;
+        border-radius: 20px;
+        color: #f6f6f6cc;
+        margin: 50px;
+        padding: 70px 50px 20px 50px;
+      }
+
+      .fter-container {
+        display: grid;
+        grid-row-gap: 40px;
+        grid-template-areas:
+          "ft1 ft2 ft3"
+          "ft4 ft4 ft4";
+      }
+
+      .fter-card {
+        padding-left: 40%;
+      }
+
+      .fter-card h3 {
+        color: #f6f6f6;
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 20px;
+      }
+
+      .fter-card ul {
+        list-style: none;
+      }
+
+      .fter-card ul li {
+        margin-bottom: 5px;
+      }
+      .fter-card ul li:last-of-type {
+        margin-bottom: 0px;
+      }
+
+      .fter-card ul li a {
+        color: #f6f6f6cc;
+        display: inline-block;
+        padding: 10px 0px;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+      .fter-card ul li a:hover {
+        background: #cd4134;
+        border-radius: 10px;
+        padding: 10px 20px;
+        transform: scale(1.05);
+      }
+
+      .fter-logo {
+        background: url("../images/home/logo.png") no-repeat center/cover;
+        height: 40px;
+        margin-bottom: 10px;
+        width: 58px;
+      }
+
+      .fter-card1 {
+        grid-area: ft1;
+      }
+
+      .fter-card2 {
+        grid-area: ft2;
+      }
+
+      .fter-card3 {
+        grid-area: ft3;
+      }
+
+      .fter-card3 ul li {
+        margin-bottom: 5px;
+      }
+
+      .fter-card3 ul li a {
+        align-items: center;
+        display: inline-flex;
+        justify-content: left;
+      }
+
+      .fter-icon {
+        height: 16px;
+        margin-right: 10px;
+        width: 16px;
+      }
+
+      .fter-icon1 {
+        background: url("../images/home/icon-twitter.png") center/cover
+          no-repeat;
+      }
+
+      .fter-icon2 {
+        background: url("../images/home/icon-linkedIn.png") center/cover
+          no-repeat;
+      }
+
+      .fter-icon3 {
+        background: url("../images/home/icon-behance.png") center/cover
+          no-repeat;
+      }
+
+      .fter-icon4 {
+        background: url("../images/home/icon-whatsapp.png") center/cover
+          no-repeat;
+      }
+
+      .fter-card4 {
+        border-top: 1px solid #ffffff1a;
+        grid-area: ft4;
+        padding: 40px 0px;
+        text-align: center;
+      }
+
+      @media screen and (max-width: 1000px) {
+        footer {
+          margin: 30px;
+          padding: 50px 20px;
+        }
+
+        .fter-container {
+          grid-template-areas:
+            "ft1"
+            "ft2"
+            "ft3"
+            "ft4";
+        }
+
+        .fter-card {
+          padding-left: 0px;
+        }
+
+        .fter-card h3 {
+          font-size: 15px;
+          margin-bottom: 10px;
+        }
+
+        .fter-card1 {
+          grid-area: ft1;
+        }
+
+        .fter-card2 {
+          grid-area: ft2;
+        }
+
+        .fter-card3 {
+          grid-area: ft3;
+        }
+
+        .fter-card4 {
+          grid-area: ft4;
+          padding: 20px 0px 0px 0px;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        footer {
+          margin: 30px 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="top"></div>
+
+    <!-- Go-to-Top Btn -->
+    <div id="top-btn">
+      <a href="#top"></a>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li>
+          <a href="./docket.html" class="btn-docket">Docket</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Section One -->
+    <section class="section-one general-section">
+      <div class="sect1-container">
+        <div class="sect1-card">
+          <div>
+            <h1>Docket</h1>
+            <p>
+              Docket is a productivity app with educational features designed to
+              help users manage their projects while facilitating idea sharing
+              among peers.
+            </p>
+          </div>
+        </div>
+
+        <div class="sect1-card">
+          <div class="sect1-box">
+            <h3>Project Duration</h3>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>2 Weeks</p>
+            </div>
+          </div>
+
+          <div class="sect1-box">
+            <h3>Target Audience</h3>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>Students</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Two -->
+    <section class="section-two general-section">
+      <div class="imgSlides fade">
+        <img
+          src="../images/projects/docket/sect2-img1.png"
+          alt="Img not found"
+        />
+      </div>
+
+      <div class="imgSlides fade">
+        <img
+          src="../images/projects/docket/sect2-img2.png"
+          alt="Img not found"
+        />
+      </div>
+
+      <div class="imgSlides fade">
+        <img
+          src="../images/projects/docket/sect2-img3.png"
+          alt="Img not found"
+        />
+      </div>
+
+      <div class="imgSlides fade">
+        <img
+          src="../images/projects/docket/sect2-img4.png"
+          alt="Img not found"
+        />
+      </div>
+    </section>
+
+    <!-- Section Three -->
+    <section class="section-three general-section">
+      <div class="sect3-container">
+        <div class="sect3-card">
+          <h3>My Roles</h3>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>UI Designer</p>
+          </div>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>UX Designer</p>
+          </div>
+        </div>
+
+        <div class="sect3-card">
+          <h3>Objectives</h3>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>
+              Develop an app to help students set tasks, collaborate with peers,
+              and improve academic performance
+            </p>
+          </div>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>
+              Enhance unity and integration between different schools across the
+              country.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Four -->
+    <section class="section-four general-section">
+      <h2>My Design Process</h2>
+      <p>
+        My design process for the docket project follows a systematic and
+        user-centric approach to create an intuitive and efficient productivity
+        app. It consists of five essential stages:
+      </p>
+
+      <div class="sect4-container1 sect4-container">
+        <div class="sect4-card">
+          <div class="sect4-imgbox sect4-img1"></div>
+
+          <div class="sect4-txtbox">
+            <h3>Discovery</h3>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>Project Identification</p>
+            </div>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>Project Definition</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sect4-card icon-arrow"></div>
+
+        <div class="sect4-card">
+          <div class="sect4-imgbox sect4-img2"></div>
+
+          <div class="sect4-txtbox">
+            <h3>Research</h3>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>User Surveys</p>
+            </div>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>Competitive Analysis</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sect4-card icon-arrow"></div>
+
+        <div class="sect4-card">
+          <div class="sect4-imgbox sect4-img3"></div>
+
+          <div class="sect4-txtbox">
+            <h3>Define</h3>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>Problem Synthesis</p>
+            </div>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>User Personas</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sect4-card icon-arrow"></div>
+
+        <div class="sect4-card">
+          <div class="sect4-imgbox sect4-img4"></div>
+
+          <div class="sect4-txtbox">
+            <h3>Design</h3>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>User Flows</p>
+            </div>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>Wireframing</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sect4-card icon-arrow"></div>
+
+        <div class="sect4-card">
+          <div class="sect4-imgbox sect4-img5"></div>
+
+          <div class="sect4-txtbox">
+            <h3>Prototype</h3>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>Prototyping</p>
+            </div>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>Review</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sect4-container2 sect4-container">
+        <div class="section-item">
+          <div class="section-icon sect4-img1"></div>
+          <h4>Discovery</h4>
+        </div>
+
+        <p>
+          During the discovery stage, the project commenced with the conception
+          of an idea. This idea revolved around transforming a productivity app
+          into a multifaceted tool, one that not only boosts productivity but
+          also incorporates valuable educational features.
+        </p>
+      </div>
+
+      <div class="sect4-container2 sect4-container">
+        <div class="section-item">
+          <div class="section-icon sect4-img2"></div>
+          <h4>Research</h4>
+        </div>
+
+        <p>
+          In this stage, a thorough examination of the project's landscape was
+          conducted. This included competitive analysis and quantitative
+          research. The aim was to gain deep insights into the target audience,
+          understand their needs, preferences, and pain points, and identify
+          opportunities for improvement and innovation.
+        </p>
+
+        <p class="sect4-highlight">
+          Insights from the quantitative research using google forms
+        </p>
+
+        <div class="sect4-imggrid1">
+          <div class="sect4-imgbox sect4-img6"></div>
+          <div class="sect4-imgbox sect4-img7"></div>
+          <div class="sect4-imgbox sect4-img8"></div>
+        </div>
+
+        <div class="sect4-imggrid2">
+          <p>Features they would love to see in the app</p>
+
+          <div class="sect4-subcon">
+            <div class="sect4-card">
+              <h4>Integrations</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Sheduling and Timelines</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Innovations</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Orders and Checklists</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Setting Reminders for Tasks</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Voice Recognition</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="sect4-imggrid2">
+          <p>Features they disliked about some of the apps they have used</p>
+
+          <div class="sect4-subcon">
+            <div class="sect4-card">
+              <h4>Disorganization</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Paying for Basic Features</h4>
+            </div>
+
+            <div class="sect4-card">
+              <h4>Clumsiness</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="sect4-imggrid-mobile-bkg">
+          <div class="sect4-imggrid-mobile"></div>
+        </div>
+
+        <div class="sect4-imggrid3">
+          <div class="sect4-header">
+            <div class="sect4-header1"></div>
+            <h4>App</h4>
+          </div>
+
+          <div class="sect4-body">
+            <div class="sect4-card sect4-card1">
+              <div class="sect4-box"><p>Feature</p></div>
+              <div class="sect4-box"><p>Multiple Sign In options</p></div>
+              <div class="sect4-box"><p>Push Notifications</p></div>
+              <div class="sect4-box"><p>Reminders</p></div>
+              <div class="sect4-box"><p>Tasks Creation</p></div>
+              <div class="sect4-box"><p>Live Feed</p></div>
+              <div class="sect4-box"><p>Chatting and Sharing</p></div>
+              <div class="sect4-box"><p>Templates</p></div>
+              <div class="sect4-box"><p>Groups</p></div>
+            </div>
+
+            <div class="sect4-card sect4-card2">
+              <div class="sect4-box section-item">
+                <div class="section-icon icon-trello"></div>
+                <p>Trello</p>
+              </div>
+              <div class="sect4-box section-item">
+                <div class="section-icon icon-airtable"></div>
+                <p>Airtable</p>
+              </div>
+              <div class="sect4-box section-item">
+                <div class="section-icon icon-slack"></div>
+                <p>Slack</p>
+              </div>
+              <div class="sect4-box section-item">
+                <div class="section-icon icon-clickUp"></div>
+                <p>Click Up</p>
+              </div>
+              <div class="sect4-box section-item">
+                <div class="section-icon icon-docket"></div>
+                <p>Docket</p>
+              </div>
+
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box sect4-boxN"><p>No</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box sect4-boxN"><p>No</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+
+              <div class="sect4-box sect4-boxN"><p>No</p></div>
+              <div class="sect4-box sect4-boxN"><p>No</p></div>
+              <div class="sect4-box sect4-boxN"><p>No</p></div>
+              <div class="sect4-box sect4-boxN"><p>No</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box sect4-boxN"><p>No</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box sect4-boxN"><p>No</p></div>
+              <div class="sect4-box sect4-boxN"><p>No</p></div>
+              <div class="sect4-box sect4-boxN"><p>No</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+
+              <div class="sect4-box"><p>Yes</p></div>
+              <div class="sect4-box sect4-boxN"><p>No</p></div>
+              <div class="sect4-box sect4-boxN"><p>No</p></div>
+              <div class="sect4-box sect4-boxN"><p>No</p></div>
+              <div class="sect4-box"><p>Yes</p></div>
+            </div>
+          </div>
+        </div>
+
+        <h5>Conclusions from Research</h5>
+        <p>
+          The research showed varying levels of app usage, with some users
+          rarely engaging and others not using such apps at all. These findings
+          informed a user-centered approach and directed project decisions
+          toward meeting users' distinct needs effectively.
+        </p>
+      </div>
+
+      <div class="sect4-container2 sect4-container">
+        <div class="section-item">
+          <div class="section-icon sect4-img3"></div>
+          <h4>Define</h4>
+        </div>
+
+        <p>
+          Following the research findings, I created user personas to identify
+          their goals and challenges more precisely.
+        </p>
+
+        <div class="sect4-personagrid">
+          <div class="sect4-header sect4-header2"></div>
+
+          <div class="sect4-subcon">
+            <div class="sect4-imgbox sect4-img9"></div>
+
+            <div class="sect4-infobox">
+              <div class="sect4-txtbox">
+                <p>Name: <span>Mfoniso Obonguko</span></p>
+                <p>Ocuupation: <span>Student</span></p>
+                <p>Age: <span>18 years</span></p>
+                <p>Location: <span>Uyo</span></p>
+              </div>
+
+              <div class="sect4-txtbox">
+                <p><span>Bio</span></p>
+                <p>
+                  Mfoniso is a 100 level linguistics student of the university
+                  of Uyo and she enjoys reading, achieving her goals and having
+                  fun with her friends.
+                </p>
+              </div>
+
+              <div class="sect4-txtbox">
+                <p><span>Goals</span></p>
+
+                <ol>
+                  <li>
+                    She needs an app to manage her day to day school tasks.
+                  </li>
+                  <li>
+                    She wants to be able to connect with other students from
+                    other schools.
+                  </li>
+                  <li>
+                    She needs a way to be reminded of her meetings before hand.
+                  </li>
+                </ol>
+              </div>
+
+              <div class="sect4-txtbox">
+                <p><span>Pain Points</span></p>
+
+                <ol>
+                  <li>
+                    She is unable to keep up with most of her school tasks
+                  </li>
+                  <li>
+                    She finds it hard to find a balance between school and her
+                    other activities
+                  </li>
+                  <li>She can’t manage her time well</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sect4-personagrid">
+          <div class="sect4-header sect4-header3"></div>
+
+          <div class="sect4-subcon">
+            <div class="sect4-imgbox sect4-img10"></div>
+
+            <div class="sect4-infobox">
+              <div class="sect4-txtbox">
+                <p>Name: <span>Ayodeji Eluyemi</span></p>
+                <p>Ocuupation: <span>Student</span></p>
+                <p>Age: <span>20 years</span></p>
+                <p>Location: <span>Osun</span></p>
+              </div>
+
+              <div class="sect4-txtbox">
+                <p><span>Bio</span></p>
+                <p>
+                  Ayodeji is a 500 level Engineering student of Obafemi Awolowo
+                  University and he enjoys reading, inventing and having fun
+                  with his friends.
+                </p>
+              </div>
+
+              <div class="sect4-txtbox">
+                <p><span>Goals</span></p>
+
+                <ol>
+                  <li>
+                    He wants to share his inventions with other students across
+                    the country.
+                  </li>
+                  <li>He wants to be able to manage his numerous tasks.</li>
+                  <li>
+                    He needs a medium through which he can access other fields.
+                  </li>
+                </ol>
+              </div>
+
+              <div class="sect4-txtbox">
+                <p><span>Pain Points</span></p>
+
+                <ol>
+                  <li>He is finding it hard to multi-task.</li>
+                  <li>
+                    He can’t find the right resources of inspiration for his
+                    projects.
+                  </li>
+                  <li>He finds it hard to communicate with people.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sect4-container2 sect4-container">
+        <div class="section-item">
+          <div class="section-icon sect4-img4"></div>
+          <h4>Design</h4>
+        </div>
+
+        <p>
+          With the concept solidified, objectives defined, and insights
+          gathered, I transitioned into the design stage. This phase involved
+          translating ideas into tangible sketches, user flows, and wireframes,
+          shaping the foundation for the app's visual and interactive elements.
+        </p>
+
+        <p class="sect4-highlight">User Flow</p>
+        <div class="sect4-img11"></div>
+
+        <p class="sect4-highlight">Low Fi - Sketches</p>
+        <div class="sect4-lofi">
+          <div class="sect4-lofi1">
+            <div class="sect4-lofi-Imgs sect4-img12"></div>
+            <div class="sect4-lofi-Imgs sect4-img13"></div>
+          </div>
+
+          <div class="sect4-lofi2">
+            <div class="sect4-lofi-Imgs sect4-img14"></div>
+          </div>
+
+          <div class="sect4-lofi1">
+            <div class="sect4-lofi-Imgs sect4-img15"></div>
+            <div class="sect4-lofi-Imgs sect4-img16"></div>
+          </div>
+        </div>
+
+        <div class="sect4-phoneScreen">
+          <div class="sect4-header4"></div>
+
+          <div class="sect4-imggrid">
+            <div class="sect4-screen sect4-img17"></div>
+            <div class="sect4-screen sect4-img18"></div>
+            <div class="sect4-screen sect4-img19"></div>
+            <div class="sect4-screen sect4-img20"></div>
+            <div class="sect4-screen sect4-img21"></div>
+            <div class="sect4-screen sect4-img22"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sect4-container2 sect4-container">
+        <div class="section-item">
+          <div class="section-icon sect4-img5"></div>
+          <h4>Prototype</h4>
+        </div>
+
+        <p>
+          As the design stage reached its conclusion, I proceeded to the
+          prototype stage to evaluate the functionality of my designs. Below,
+          you can explore the prototypes I created to bring the concept to life.
+        </p>
+
+        <h3>Loading Screen</h3>
+        <p>
+          The loading screen serves as the gateway to the app's user experience,
+          setting the stage for what lies ahead.
+        </p>
+        <div class="sect4-videobox">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/bSDRrxhnRuk?si=fu7Gpj9J8_6c1-zP"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <h3>Onboarding Screen</h3>
+        <p>
+          The onboarding screens play a crucial role in helping new users
+          kickstart their journey with the app. They serve as an educational
+          tool, introducing users to the app's features, functionality, and
+          value, while seamlessly guiding them through the setup and usage
+          process.
+        </p>
+        <div class="sect4-videobox">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/jnWHAd-6iZY?si=fPwZcLID7i_RoqN0"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <h3>Sign in Screen</h3>
+        <p>
+          These screens serve as the initial entry points for users, granting
+          access to the app's wide array of features and functionalities.
+        </p>
+        <div class="sect4-videobox">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/yV6snC5ZboI?si=DS_hKOnXyWEdK6Uk"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <h3>Home Screen</h3>
+        <p>
+          The home screen acts as a central hub, providing easy access to all
+          other app features. It offers users a quick overview of upcoming
+          tasks, news updates, a search button, notifications, and a convenient
+          navigation bar for seamless interaction.
+        </p>
+        <div class="sect4-videobox">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/h0A4817lsp4?si=uFvt1GbXO9PV2Z-T"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <h3>Groups Screen</h3>
+        <p>
+          The groups screen, accessible through the navigation bar, fosters user
+          communication and idea sharing within the app. Users can request to
+          join groups via the feed or search function, enabling them to initiate
+          conversations and share valuable resources. This feature plays a
+          pivotal role in promoting integration and collaboration among users.
+        </p>
+        <div class="sect4-videobox">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/HSklmyUZ_E0?si=2Vg1BlIR9ybXOI9Y"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <h3>Create Screen</h3>
+        <p>
+          The create screen serves as a multifunctional hub, allowing users to
+          both create and publish projects while also setting tasks and goals
+          within the app. Users can showcase their projects on the feed,
+          enhancing visibility, and effectively manage their time by setting
+          tasks and reminders to stay organized and productive.
+        </p>
+        <div class="sect4-videobox">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/83Q510e0FaM?si=LnVb9tYEXFexysT_"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <h3>Feed Screen</h3>
+        <p>
+          The feed screen serves as a dynamic platform for users to showcase
+          their projects while also providing inspiration and resources for
+          others in various fields, including arts, science, and engineering.
+          This section of the app fosters networking, knowledge sharing, and
+          national integration by categorizing projects based on their
+          respective domains.
+        </p>
+        <div class="sect4-videobox">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/ZcYzuzBQsAs?si=DMAcc-YxZtmLceGb"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Five -->
+    <section class="section-five general-section">
+      <div class="sect5-container">
+        <div class="sect5-card">
+          <h3>Challenges I Faced</h3>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>Difficulty in finding people for interviews</p>
+          </div>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>
+              Limited prototype showcase options due to the free plan in Figma.
+            </p>
+          </div>
+        </div>
+
+        <div class="sect5-card">
+          <h3>How I Solved Them</h3>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>
+              Utilized quantitative research as an alternative to interviews
+            </p>
+          </div>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>
+              Chose YouTube as a platform to display prototypes after exploring
+              various alternatives.
+            </p>
+          </div>
+        </div>
+
+        <div class="sect5-card">
+          <h3>Key Takeaways</h3>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>Continuous learning is essential</p>
+          </div>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>Docket was a valuable project, with room for improvement.</p>
+          </div>
+        </div>
+
+        <div class="sect5-card">
+          <h3>Tools Used</h3>
+
+          <div class="sect5-toolslist">
+            <div>
+              <div class="sect5-icon icon-figma"></div>
+              <p>Figma</p>
+            </div>
+
+            <div>
+              <div class="sect5-icon icon-youtube"></div>
+              <p>Youtube</p>
+            </div>
+
+            <div>
+              <div class="sect5-icon icon-miro"></div>
+              <p>Miro</p>
+            </div>
+
+            <div>
+              <div class="sect5-icon icon-googleforms"></div>
+              <p>Google Forms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Six -->
+    <section class="section-six general-section">
+      <div class="sect6-container">
+        <div class="sect6-txtbox">
+          <h1>High Five, Case Study Champion! 🏅📝</h1>
+          <p>You've earned a virtual round of applause! 🏁👏</p>
+        </div>
+
+        <div class="sect6-btnbox">
+          <a href="../index.html" class="section-btn">Go Back Home</a>
+
+          <a
+            href="https://calendly.com/donwaynethedesigner/30min"
+            class="section-btn sect6-btn"
+            target="_blank"
+            ><div class="sect6-icon"></div>
+            Let's Talk</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="fter-container">
+        <div class="fter-card fter-card1">
+          <div class="fter-logo"></div>
+          <p>Don Wayne</p>
+        </div>
+
+        <div class="fter-card fter-card2">
+          <h3>Quick Links</h3>
+
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./portfolio.html">Portfolio</a></li>
+            <li><a href="./about.html">About Me</a></li>
+            <li><a href="./contact.html">Contact Me</a></li>
+          </ul>
+        </div>
+
+        <div class="fter-card fter-card3">
+          <h3>Social Links</h3>
+
+          <ul>
+            <li>
+              <a href="https://twitter.com/DonWayne1048" target="_blank"
+                ><div class="fter-icon fter-icon1"></div>
+                Twitter</a
+              >
+            </li>
+            <li>
+              <a href="https://linkedin.com/in/donwaynetd" target="_blank"
+                ><div class="fter-icon fter-icon2"></div>
+                Linkedin</a
+              >
+            </li>
+            <li>
+              <a href="https://www.behance.net/donwayne" target="_blank"
+                ><div class="fter-icon fter-icon3"></div>
+                Behance</a
+              >
+            </li>
+            <li>
+              <a href="https://wa.me/2349167843179" target="_blank"
+                ><div class="fter-icon fter-icon4"></div>
+                Whatsapp</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="fter-card fter-card4">
+          <p>Made by <span>Don Wayne</span></p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Go-to-Top Button
+      const topBtn = document.querySelector("#top-btn");
+
+      let bodyScrollTopPosition = document.body.scrollTop;
+
+      window.onscroll = function () {
+        if (
+          bodyScrollTopPosition > 150 ||
+          document.documentElement.scrollTop > 150
+        ) {
+          topBtn.style.display = "block";
+        } else {
+          topBtn.style.display = "none";
+        }
+      };
+
+      // Image Silder
+      let slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("imgSlides");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2000);
+      }
+    </script>
+  </body>
+</html>

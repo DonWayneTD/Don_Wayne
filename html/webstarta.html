@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/home/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>Webstarta</title>
+
+    <style>
+      /* Font Family */
+      @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
+      /* General Styling */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.13),
+            rgba(255, 255, 255, 0.13)
+          ),
+          #000;
+        font-family: "Manrope", sans-serif;
+      }
+
+      /* Tags */
+      a,
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.7px;
+        line-height: 32px;
+      }
+
+      a {
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      @media screen and (max-width: 1000px) {
+        a,
+        p {
+          font-size: 12px;
+          line-height: 30px;
+        }
+
+        a {
+          font-weight: 500;
+          line-height: normal;
+        }
+      }
+
+      /* Go to Top Btn */
+      #top-btn {
+        bottom: 30px;
+        display: none;
+        position: fixed;
+        right: 30px;
+        z-index: 1000;
+      }
+
+      #top-btn a {
+        background: url("../images/projects/webstarta/icon-goToTop.png")
+          center/cover no-repeat;
+        border-radius: 300px;
+        display: block;
+        height: 40px;
+        transition: all 0.3s;
+        width: 40px;
+      }
+      #top-btn a:hover {
+        background: url("../images/projects/webstarta/icon-goToTopHover.png")
+          center/cover no-repeat;
+      }
+
+      @media screen and (max-width: 400px) {
+        #top-btn {
+          bottom: 20px;
+          right: 20px;
+        }
+
+        #top-btn a:hover {
+          background: url("../images/home/icon-goToTop.png") center/cover
+            no-repeat;
+        }
+      }
+
+      /* Navigation Bar */
+      .navbar {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+        display: inline-block;
+        margin: 40px 50px 0px 50px;
+        padding: 15px 30px;
+        width: auto;
+      }
+
+      .navbar ul {
+        align-items: center;
+        display: flex;
+        list-style: none;
+      }
+
+      .navbar ul li {
+        margin-right: 15px;
+      }
+      .navbar ul li:last-of-type {
+        margin-right: 0px;
+      }
+
+      .navbar ul li a {
+        border: 1px solid rgba(255, 255, 255, 0);
+        border-radius: 20px;
+        color: #f6f6f6cc;
+        display: block;
+        padding: 15px 17px;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+      .navbar ul li a:first-of-type:hover,
+      .navbar ul li:last-of-type a {
+        background-color: #32a4e6;
+        border: 1px solid #32a4e6;
+        color: #000;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .navbar {
+          margin: 40px 30px 0px 30px;
+          padding: 10px;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .navbar {
+          margin: 40px 10px 0px 10px;
+        }
+      }
+
+      /* General Section */
+      .general-section {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+        color: #f6f6f6cc;
+        margin: 50px 50px 0px 50px;
+        padding: 50px 40px;
+      }
+
+      .general-section h1,
+      .general-section h2,
+      .general-section h3,
+      .general-section h4,
+      .general-section h5,
+      .general-section h6 {
+        color: #fff;
+        font-weight: 400;
+      }
+
+      .general-section h3 {
+        margin-bottom: 20px;
+      }
+
+      .section-btn {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        padding: 15px 17px;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+      .section-btn:hover {
+        background: #32a4e6;
+        border: 1px solid #32a4e6;
+        color: #000;
+      }
+
+      .section-item {
+        align-items: center;
+        display: flex;
+        margin-bottom: 20px;
+      }
+      .section-item:last-of-type {
+        margin-bottom: 0px;
+      }
+
+      .section-item p {
+        width: calc(100% - 16px);
+      }
+
+      .section-item span {
+        color: #fff;
+        font-weight: 900;
+      }
+
+      .section-icon {
+        height: 16px;
+        margin-right: 10px;
+        width: 16px;
+      }
+
+      .icon-bullet {
+        background: url("../images/projects/webstarta/icon-bullet.png")
+          center/cover no-repeat;
+      }
+
+      .icon-wordpress {
+        background: url("../images/projects/webstarta/icon-wordpress.png")
+          center/cover no-repeat;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .general-section {
+          margin: 30px 30px 0px 30px;
+          padding: 30px 20px;
+        }
+
+        .general-section br {
+          display: none;
+        }
+
+        .section-btn {
+          padding: 12px 14px;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .general-section {
+          margin: 30px 10px 0px 10px;
+        }
+      }
+
+      /* Section One */
+      .section-one {
+        border: 1px solid rgba(255, 255, 255, 0);
+        padding: 0px;
+      }
+
+      .sect1-container {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 70% calc(30% - 20px);
+      }
+
+      .sect1-card {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+      }
+      .sect1-card:first-of-type {
+        padding: 30px 40px;
+      }
+      .sect1-card:last-of-type {
+        padding: 60px 20px;
+      }
+
+      .sect1-card:first-of-type h1 {
+        font-size: 36px;
+        font-weight: 700;
+      }
+
+      .sect1-card:first-of-type p {
+        margin: 20px 0px 30px 0px;
+      }
+
+      .sect1-box:first-of-type {
+        border-bottom: 1px solid #ffffff1a;
+        padding-bottom: 30px;
+      }
+      .sect1-box:last-of-type {
+        padding-top: 30px;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .sect1-container {
+          display: block;
+        }
+
+        .sect1-card:first-of-type,
+        .sect1-card:last-of-type {
+          margin-bottom: 30px;
+          padding: 30px 20px;
+        }
+
+        .sect1-card:last-of-type {
+          margin-bottom: 0px;
+        }
+
+        .sect1-card:first-of-type h1 {
+          font-size: 30px;
+        }
+
+        .section-one .section-btn {
+          background: #32a4e6;
+          border: 1px solid #32a4e6;
+          color: #000;
+          text-align: center;
+          width: 100%;
+        }
+        .section-one .section-btn:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: #f6f6f6;
+        }
+      }
+
+      /* Section Two */
+      .sect2-container {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      .sect2-img {
+        background: url("../images/projects/webstarta/sect2-img.png")
+          center/cover no-repeat;
+        height: 760px;
+        width: 100%;
+      }
+
+      @media screen and (max-width: 1300px) {
+        .section-two {
+          border-radius: 0px;
+          padding: 0px;
+        }
+
+        .sect2-img {
+          height: 500px;
+        }
+      }
+      @media screen and (max-width: 800px) {
+        .sect2-img {
+          height: 300px;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        .sect2-img {
+          height: 200px;
+        }
+      }
+
+      /* Section Three */
+      .section-three {
+        border: 1px solid rgba(255, 255, 255, 0);
+        padding: 0px;
+      }
+
+      .sect3-container {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sect3-card {
+        border: 1px solid #ffffff1a;
+        border-radius: 30px;
+        padding: 50px 40px;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .sect3-container {
+          display: block;
+        }
+
+        .sect3-card {
+          margin-bottom: 30px;
+          padding: 30px 20px;
+        }
+        .sect3-card:last-of-type {
+          margin-bottom: 0px;
+        }
+
+        .sect3-item .section-icon {
+          display: none;
+        }
+
+        .sect3-item p {
+          width: 100%;
+        }
+      }
+
+      /* Section Four */
+      .sect4-heading {
+        margin-bottom: 30px;
+      }
+
+      .sect4-container {
+        border-radius: 30px;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .sect4-heading h2 {
+          font-size: 20px;
+        }
+
+        .sect4-card {
+          margin-bottom: 30px;
+          padding: 30px 20px;
+        }
+        .sect4-card:last-of-type {
+          margin-bottom: 0px;
+        }
+      }
+
+      /* Section Seven */
+      .sect7-container {
+        text-align: center;
+      }
+
+      .sect7-txtbox {
+        margin-bottom: 30px;
+      }
+
+      .sect7-txtbox h1 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .sect7-btnbox {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      .sect7-btn {
+        align-items: center;
+        background: inherit;
+        display: flex;
+        justify-content: center;
+        margin-left: 10px;
+      }
+
+      .sect7-icon {
+        background: url("../images/home/icon-phone.png") center/cover no-repeat;
+        height: 16px;
+        margin-right: 5px;
+        width: 16px;
+      }
+
+      @media screen and (max-width: 800px) {
+        .sect7-txtbox h1 {
+          font-size: 30px;
+        }
+
+        .section-seven .section-btn {
+          background: #32a4e6;
+          border: 1px solid #32a4e6;
+          color: #000;
+          text-align: center;
+          width: 50%;
+        }
+        .section-seven .section-btn:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: #f6f6f6;
+        }
+
+        .section-seven .sect7-btn {
+          background-color: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: #f6f6f6;
+        }
+        .section-seven .sect7-btn:hover {
+          color: #f6f6f6;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .sect7-txtbox h1 {
+          font-size: 28px;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        .sect7-txtbox h1 {
+          font-size: 20px;
+        }
+
+        .sect7-container p,
+        .sect7-container a {
+          font-size: 12px;
+        }
+      }
+
+      /* Footer */
+      footer {
+        border: 1px solid #ffffff1a;
+        border-radius: 20px;
+        color: #f6f6f6cc;
+        margin: 50px;
+        padding: 70px 50px 20px 50px;
+      }
+
+      .fter-container {
+        display: grid;
+        grid-row-gap: 40px;
+        grid-template-areas:
+          "ft1 ft2 ft3"
+          "ft4 ft4 ft4";
+      }
+
+      .fter-card {
+        padding-left: 40%;
+      }
+
+      .fter-card h3 {
+        color: #f6f6f6;
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 20px;
+      }
+
+      .fter-card ul {
+        list-style: none;
+      }
+
+      .fter-card ul li {
+        margin-bottom: 5px;
+      }
+      .fter-card ul li:last-of-type {
+        margin-bottom: 0px;
+      }
+
+      .fter-card ul li a {
+        color: #f6f6f6cc;
+        display: inline-block;
+        padding: 10px 0px;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+      .fter-card ul li a:hover {
+        background: #32a4e6;
+        border-radius: 10px;
+        padding: 10px 20px;
+        transform: scale(1.05);
+      }
+
+      .fter-logo {
+        background: url("../images/home/logo.png") no-repeat center/cover;
+        height: 40px;
+        margin-bottom: 10px;
+        width: 58px;
+      }
+
+      .fter-card1 {
+        grid-area: ft1;
+      }
+
+      .fter-card2 {
+        grid-area: ft2;
+      }
+
+      .fter-card3 {
+        grid-area: ft3;
+      }
+
+      .fter-card3 ul li {
+        margin-bottom: 5px;
+      }
+
+      .fter-card3 ul li a {
+        align-items: center;
+        display: inline-flex;
+        justify-content: left;
+      }
+
+      .fter-icon {
+        height: 16px;
+        margin-right: 10px;
+        width: 16px;
+      }
+
+      .fter-icon1 {
+        background: url("../images/home/icon-twitter.png") center/cover
+          no-repeat;
+      }
+
+      .fter-icon2 {
+        background: url("../images/home/icon-linkedIn.png") center/cover
+          no-repeat;
+      }
+
+      .fter-icon3 {
+        background: url("../images/home/icon-behance.png") center/cover
+          no-repeat;
+      }
+
+      .fter-icon4 {
+        background: url("../images/home/icon-whatsapp.png") center/cover
+          no-repeat;
+      }
+
+      .fter-card4 {
+        border-top: 1px solid #ffffff1a;
+        grid-area: ft4;
+        padding: 40px 0px;
+        text-align: center;
+      }
+
+      @media screen and (max-width: 1000px) {
+        footer {
+          margin: 30px;
+          padding: 50px 20px;
+        }
+
+        .fter-container {
+          grid-template-areas:
+            "ft1"
+            "ft2"
+            "ft3"
+            "ft4";
+        }
+
+        .fter-card {
+          padding-left: 0px;
+        }
+
+        .fter-card h3 {
+          font-size: 15px;
+          margin-bottom: 10px;
+        }
+
+        .fter-card1 {
+          grid-area: ft1;
+        }
+
+        .fter-card2 {
+          grid-area: ft2;
+        }
+
+        .fter-card3 {
+          grid-area: ft3;
+        }
+
+        .fter-card4 {
+          grid-area: ft4;
+          padding: 20px 0px 0px 0px;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        footer {
+          margin: 30px 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="top"></div>
+
+    <!-- Go-to-Top Btn -->
+    <div id="top-btn">
+      <a href="#top"></a>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li>
+          <a href="./webstarta.html">Webstarta</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Section One -->
+    <section class="section-one general-section">
+      <div class="sect1-container">
+        <div class="sect1-card">
+          <h1>Webstarta</h1>
+          <p>
+            At Webstarta, a remote [global] SaaS web design agency, I
+            contributed to crafting a strategically designed main website - a
+            dynamic landing page that efficiently collects essential
+            information.
+          </p>
+          <a href="https://webstarta.co/" class="section-btn" target="_blank"
+            >Visit Webstarta</a
+          >
+        </div>
+
+        <div class="sect1-card">
+          <div class="sect1-box">
+            <h3>Project Duration</h3>
+
+            <div class="section-item">
+              <div class="section-icon icon-bullet"></div>
+              <p>Ongoing</p>
+            </div>
+          </div>
+
+          <div class="sect1-box">
+            <h3>Tools Used</h3>
+
+            <div class="section-item">
+              <div class="section-icon icon-wordpress"></div>
+              <p>Wordpress</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Two -->
+    <section class="section-two general-section">
+      <div class="sect2-container">
+        <div class="sect2-img"></div>
+      </div>
+    </section>
+
+    <!-- Section Three -->
+    <section class="section-three general-section">
+      <div class="sect3-container">
+        <div class="sect3-card">
+          <h3>Webstarta's Objective</h3>
+
+          <div class="section-item sect3-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>
+              The primary objective of this project was to create a visually
+              <br />
+              appealing and informative landing page that would capture the
+              <br />
+              essence of Webstarta's services, process, encourage visitor <br />
+              engagement and acquire clients.
+            </p>
+          </div>
+        </div>
+
+        <div class="sect3-card">
+          <h3>My Role</h3>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>
+              As the UI/UX Designer, I was responsible for crafting the user
+              interface and user experience design for the landing page.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Four -->
+    <section class="section-four general-section">
+      <div class="sect4-heading">
+        <h2>Webstarta's Design Process Using Growth Driven Design [GDD]</h2>
+      </div>
+
+      <div class="section-item">
+        <div class="section-icon icon-bullet"></div>
+        <p>
+          <span>Strategy Phase</span>: In the initial strategy phase, we delved
+          deep into understanding our client's goals, target audience, and the
+          unique challenges of <br />
+          their projects. We conducted extensive research and analysis to
+          formulate a clear design strategy.
+        </p>
+      </div>
+
+      <div class="section-item">
+        <div class="section-icon icon-bullet"></div>
+        <p>
+          <span>Launchpad Phase</span>: Moving forward, we entered the launchpad
+          phase. Here, we focused on designing a dynamic landing page that
+          effectively <br />
+          communicates our agency's offerings, our design process, and how
+          potential clients could initiate a discovery call.
+        </p>
+      </div>
+
+      <div class="section-item">
+        <div class="section-icon icon-bullet"></div>
+        <p>
+          <span>Continuous Improvement Stage</span>: Currently, we're at the
+          continuous improvement stage. This ongoing phase allows us to gather
+          real-time <br />
+          user data, refine our designs, and make data-driven adjustments. It's
+          a dynamic approach that ensures our designs continuously align with
+          user needs and market trends.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section Five -->
+    <section class="section-three general-section">
+      <div class="sect3-container">
+        <div class="sect3-card">
+          <h3>Challenges</h3>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>
+              Getting people to talk to and gather insights from was initially
+              <br />
+              challenging. However, we discovered that Twitter's new feature,
+              <br />
+              Communities, was a valuable resource. It allowed us to send
+              surveys <br />
+              directly to our target audience. Additionally, we found LinkedIn
+              to be <br />
+              effective for connecting with individuals interested in B2B SaaS.
+            </p>
+          </div>
+        </div>
+
+        <div class="sect3-card">
+          <h3>Solutions</h3>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>
+              The landing page design incorporated visually appealing elements,
+              <br />
+              a clear call-to-action, and content that effectively communicated
+              <br />
+              Webstarta's services and process.
+            </p>
+          </div>
+        </div>
+
+        <div class="sect3-card">
+          <h3>Results</h3>
+
+          <div class="section-item">
+            <div class="section-icon icon-bullet"></div>
+            <p>
+              Though a work in progress, Webstarta's GDD approach has already
+              <br />
+              yielded promising outcomes. The agency now boasts a modern and
+              <br />
+              informative landing page that effectively communicates their
+              <br />
+              services and processes and converts visitors.
+            </p>
+          </div>
+        </div>
+
+        <div class="sect3-card">
+          <h3>Tools Used</h3>
+
+          <div class="section-item">
+            <div class="section-icon icon-wordpress"></div>
+            <p>Wordpress</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Six -->
+    <section class="section-four general-section">
+      <div class="sect4-heading">
+        <h2>Key Takeaways</h2>
+      </div>
+
+      <div class="section-item">
+        <div class="section-icon icon-bullet"></div>
+        <p>
+          Collaboration with clients is essential for successful design
+          projects.
+        </p>
+      </div>
+
+      <div class="section-item">
+        <div class="section-icon icon-bullet"></div>
+        <p>
+          Effective communication of the agency's mission is crucial in landing
+          page design.
+        </p>
+      </div>
+
+      <div class="section-item">
+        <div class="section-icon icon-bullet"></div>
+        <p>
+          Designing for user engagement and clear calls-to-action can enhance
+          conversion rates.
+        </p>
+      </div>
+
+      <div class="section-item">
+        <div class="section-icon icon-bullet"></div>
+        <p>Growth driven design is a very effective method of designing.</p>
+      </div>
+    </section>
+
+    <!-- Section Seven -->
+    <section class="section-seven general-section">
+      <div class="sect7-container">
+        <div class="sect7-txtbox">
+          <h1>Thanks for Digging Deep! 🕵️‍♂️📜</h1>
+          <p>You've earned a virtual round of applause! 🏁👏</p>
+        </div>
+
+        <div class="sect7-btnbox">
+          <a href="https://webstarta.co/" class="section-btn" target="_blank"
+            >Visit Webstarta</a
+          >
+          <a
+            href="https://calendly.com/donwaynethedesigner/30min"
+            class="section-btn sect7-btn"
+            target="_blank"
+            ><div class="sect7-icon"></div>
+            Let's Talk</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="fter-container">
+        <div class="fter-card fter-card1">
+          <div class="fter-logo"></div>
+          <p>Don Wayne</p>
+        </div>
+
+        <div class="fter-card fter-card2">
+          <h3>Quick Links</h3>
+
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./portfolio.html">Portfolio</a></li>
+            <li><a href="./about.html">About Me</a></li>
+            <li><a href="./contact.html">Contact Me</a></li>
+          </ul>
+        </div>
+
+        <div class="fter-card fter-card3">
+          <h3>Social Links</h3>
+
+          <ul>
+            <li>
+              <a href="https://twitter.com/DonWayne1048" target="_blank"
+                ><div class="fter-icon fter-icon1"></div>
+                Twitter</a
+              >
+            </li>
+            <li>
+              <a href="https://linkedin.com/in/donwaynetd" target="_blank"
+                ><div class="fter-icon fter-icon2"></div>
+                Linkedin</a
+              >
+            </li>
+            <li>
+              <a href="https://www.behance.net/donwayne" target="_blank"
+                ><div class="fter-icon fter-icon3"></div>
+                Behance</a
+              >
+            </li>
+            <li>
+              <a href="https://wa.me/2349167843179" target="_blank"
+                ><div class="fter-icon fter-icon4"></div>
+                Whatsapp</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="fter-card fter-card4">
+          <p>Made by <span>Don Wayne</span></p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Go-to-Top Button
+      const topBtn = document.querySelector("#top-btn");
+
+      let bodyScrollTopPosition = document.body.scrollTop;
+
+      window.onscroll = function () {
+        if (
+          bodyScrollTopPosition > 150 ||
+          document.documentElement.scrollTop > 150
+        ) {
+          topBtn.style.display = "block";
+        } else {
+          topBtn.style.display = "none";
+        }
+      };
+    </script>
+  </body>
+</html>
